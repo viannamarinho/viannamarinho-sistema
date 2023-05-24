@@ -1,34 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- ========= REGRAS & FEATURES DO NEXT 13 ========= -->
 
-## Getting Started
+- Dentro do app são setadas as páginas e funciona da seguinte forma:
+  - A pasta consiste no nome da rota
+  - O arquivo page.tsx é o único nome de arquivo que o Next lê como arquivo de página
+    - Qualquer outro arquivo que não seja o page não é irterpretado como página
 
-First, run the development server:
+# FETCH
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Colocar função do componente como async
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+const response = await fetch('https://...', {
+next: {
+revalidate: 30, // Feature que faz essa chamada ser revalidada a cada 30s
+},
+cache: 'no-store' // Feature que controla o cache dessa requisição
+})
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# DICA
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Sempre que for feito 2 ou mais requisições no mesmo componente em que uma não dependa da outra,
+utilizar a formatação abaixo:
 
-## Learn More
+const [resp1, resp2] = await Promise.all([
+fetch(''),
+fetch('')
+])
 
-To learn more about Next.js, take a look at the following resources:
+# ACESSAR OS COOKIES
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+import { cookies, headers } from 'next/headers'
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+const userCookies = cookies()
+const userHeaders = headers()
 
-## Deploy on Vercel
+{JSON.stringify(userCookies.getAll(), null, 2)}
+{JSON.stringify(userCookies.get('cookie_name'), null, 2)}
+...
+{JSON.stringify(userHeaders.entries(), null, 2)}
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+É possível chamar essas funções dentro do componente
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# COLOCANDO LOADING EM COMPONENTES
+
+O Next identifica quando um componente está carregando para ser exibido e pode-se colocar um loading
+para que até que o componente esteja apto para aparecer o loading fique no seu lugar
+
+- Detalhe: O componente loading é definido pelo próprio Next através do arquivo loading.tsx
+
+import { Suspense } from 'react'
+
+<Suspense fallback={<p>Carregando</p>}>
+// Componente que demora
+</Suspense>
+
+# NAVEGAÇÃO
+
+// Importantando de 'next/navigation' é possível obter funções interessantes como 'useSearchParams, usePathname, ...'
+const { useRouter } from 'next/navigation'
+
+const { push, prefetch, params, ... } = useRouter()
+
+# REFRESH A CADA NOVA NAVEGAÇÃO DE ROTA
+
+// O código abaixo faz com que a página seja atualizada a cada vez que a sua rota é ativa
+
+const { useRouter } from 'next/navigation'
+
+const router = useRouter()
+router.refresh()
+
+# HIDRATAÇÃO
+
+'use_client'
+
+Somente esses componentes serão carregados na hidratação, componente que armazenam e lidam com estados do usuário
+
+- Obs: Quando se usa essa tag, a função do componente não pode ser assíncrona
