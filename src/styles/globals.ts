@@ -39,7 +39,6 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     user-select: none;
     transition: .2s;
-    color: white;
   }
 
   scroll-behavior: smooth;

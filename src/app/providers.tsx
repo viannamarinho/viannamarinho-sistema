@@ -5,7 +5,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 
 import GlobalStyle from '@/styles/globals'
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function GlobalProviders({ children }: { children: React.ReactNode }) {
   return (
     <CacheProvider>
       <ChakraProvider>
