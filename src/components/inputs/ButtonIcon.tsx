@@ -1,11 +1,19 @@
 'use client'
 
-import { useState } from 'react'
-import { InputButtonIcon } from '@/styles/inputs'
-import { FiX } from 'react-icons/fi'
+import IconButton from '@mui/material/IconButton'
 
-export function ButtonIcon() {
-  const [inputValue, setInputValue] = useState('')
+interface IconButtonProps {
+  icon?: any
+  ariaLabel: string
+  onClick?: () => void
+}
 
-  return <InputButtonIcon aria-label="Icon Button" icon={<FiX />} />
+export function ButtonIcon(props: IconButtonProps) {
+  const { icon, ariaLabel, onClick } = props
+
+  return (
+    <IconButton aria-label={ariaLabel} size="small" onClick={onClick}>
+      {icon}
+    </IconButton>
+  )
 }

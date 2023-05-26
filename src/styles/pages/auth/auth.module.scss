@@ -1,0 +1,40 @@
+.auth_page {
+  display: flex;
+  border: 1px solid red;
+}
+
+.auth_page__form_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  height: fit-content;
+  padding: 20px;
+  border-radius: 10px;
+
+  border: 1px solid blue;
+
+}
+
+.auth_page__form_header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  img {
+    width: 80%;
+  }
+
+  border: 1px solid gray;
+}
+
+.auth_page__form_content {
+  display: flex;
+
+  border: 1px solid gray;
+}
+
+.auth_page__form_footer {
+  display: flex;
+  border: 1px solid gray;
+}

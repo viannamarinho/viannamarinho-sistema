@@ -1,10 +1,29 @@
 'use client'
 
-import { useState } from 'react'
-import { InputButton } from '@/styles/inputs'
+import MUIButton from '@mui/material/Button'
 
-export function Button() {
-  const [inputValue, setInputValue] = useState('')
+interface ButtonProps {
+  label: string
+  startIcon?: any
+  endIcon?: any
+  variant?: 'contained' | 'outlined'
+  isLoading?: boolean
+  disabled?: boolean
+  onClick?: () => void
+}
 
-  return <InputButton>InputText</InputButton>
+export function Button(props: ButtonProps) {
+  const { label, variant = 'contained', isLoading, onClick } = props
+
+  return (
+    <MUIButton
+      // isLoading={isLoading}
+      variant={variant}
+      size="small"
+      disableElevation
+      onClick={onClick}
+    >
+      {label}
+    </MUIButton>
+  )
 }

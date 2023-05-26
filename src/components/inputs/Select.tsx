@@ -1,10 +1,47 @@
 'use client'
 
-import { useState } from 'react'
-import { InputSelect } from '@/styles/inputs'
+import FormControl from '@mui/material/FormControl'
 
-export function Select() {
-  const [inputValue, setInputValue] = useState('')
+import MUISelect from '@mui/material/Select'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
 
-  return <InputSelect>InputText</InputSelect>
+type SelectOptionsProps = [
+  {
+    value: string
+    label: string
+  }
+][]
+
+interface SelectProps {
+  placeholder: string
+  label: string
+  labelId: string
+  options?: SelectOptionsProps
+  selectedValue?: SelectOptionsProps
+  onChange: (e: any) => void
+}
+
+export function Select(props: SelectProps) {
+  const { label, placeholder, labelId, options, selectedValue, onChange } =
+    props
+
+  return (
+    <FormControl fullWidth>
+      <InputLabel id={labelId}>{label}</InputLabel>
+      <MUISelect
+        placeholder={placeholder}
+        labelId={labelId}
+        value={selectedValue}
+        // size="small"
+        onChange={(e) => onChange(e.target.value)}
+      >
+        {options?.map((option: any) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+      </MUISelect>
+    </FormControl>
+  )
 }
