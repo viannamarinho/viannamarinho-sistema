@@ -20,6 +20,7 @@ export function Button(props: ButtonProps) {
       // isLoading={isLoading}
       variant={variant}
       size="small"
+      fullWidth
       disableElevation
       onClick={onClick}
     >

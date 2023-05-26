@@ -9,11 +9,11 @@
   width: 100%;
   max-width: 300px;
   height: fit-content;
-  padding: 20px;
+  padding: 20px 20px 40px 20px;
   border-radius: 10px;
 
-  border: 1px solid blue;
-
+  // border: 1px solid blue;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .auth_page__form_header {
@@ -22,19 +22,11 @@
   margin-bottom: 20px;
 
   img {
-    width: 80%;
+    height: 80px;
   }
-
-  border: 1px solid gray;
 }
 
 .auth_page__form_content {
   display: flex;
-
-  border: 1px solid gray;
 }
 
-.auth_page__form_footer {
-  display: flex;
-  border: 1px solid gray;
-}

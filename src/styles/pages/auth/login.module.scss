@@ -1,4 +1,27 @@
+.login_form__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .login_form {
   display: flex;
-  border: 1px solid red;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 15px;
+}
+
+.login_form__submit_container {
+  width: 80px;
+  margin-left: auto;
+}
+
+.login_form__redirect {
+  margin-top: 15px;
+
+  font-size: 15px;
+  font-weight: 300;
+  text-align: right;
+
+  border: 1px solid gray;
 }
