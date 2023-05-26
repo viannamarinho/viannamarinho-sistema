@@ -1,0 +1,8 @@
+@import '@/styles/variables.module.scss';
+
+.admin_menu {
+  display: flex;
+  flex-direction: column;
+  width: $admin-menu-width;
+  height: 100%;
+}

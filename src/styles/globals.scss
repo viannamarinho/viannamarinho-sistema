@@ -59,3 +59,22 @@ body {
   border-radius: 4px;
   background-color: white;
 }
+
+// -------------------- RESPONSIVITY VARIABLES -------------------- //
+ 
+$responsive-ultrawide: '1400px';
+$responsive-desktop: '1000px';
+$responsive-tablet: '760px';
+$responsive-mobile: '480px';
+
+$admin-header-height: '40px';
+$admin-page-height: 'calc(40px)';
+$admin-menu-width: '200px';
+$admin-views-width: 'calc(200px)';
+
+:export {
+  adminHeaderHeight: $admin-header-height;
+  adminPageHeight: $admin-page-height;
+  adminMenuWidth: $admin-menu-width;
+  adminViewsWidth: $admin-views-width;
+}

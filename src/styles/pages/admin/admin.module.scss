@@ -1,0 +1,21 @@
+@import '@/styles/variables.module.scss';
+
+.admin_page {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+}
+
+.admin_page__container {
+  display: flex;
+  width: 100%;
+  height: calc(100% - $admin-header-height);
+}
+
+.admin_page__menu {}
+
+.admin_page__views {
+  display: flex;
+  width: calc(100% - $admin-menu-width);
+  height: 100%;
+}

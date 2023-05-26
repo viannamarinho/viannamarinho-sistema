@@ -1,0 +1,10 @@
+@import '@/styles/variables.module.scss';
+
+.admin_header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: $admin-header-height;
+
+  border: 1px solid red;
+}
