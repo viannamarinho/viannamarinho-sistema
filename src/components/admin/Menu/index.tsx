@@ -11,9 +11,11 @@ import { viewsMainMenuData, viewsSecondaryMenuData } from '@/data/viewsData'
 interface IMenuData {
   viewId: string
   viewLabel: string
+  viewPath: string
   viewTitle: string
   viewLegend: string
   viewIcon: JSX.Element
+  viewComponent: React.ReactNode
 }
 
 export default function Menu() {
@@ -30,8 +32,8 @@ export default function Menu() {
             key={menu.viewId}
             label={menu.viewLabel}
             icon={menu.viewIcon}
-            isActive={menu.viewId === activeView}
-            onClick={() => handleChangeActiveView(menu.viewId)}
+            isActive={menu.viewPath === activeView}
+            onClick={() => handleChangeActiveView(menu.viewPath)}
           />
         ))}
       </div>
@@ -41,8 +43,8 @@ export default function Menu() {
             key={menu.viewId}
             label={menu.viewLabel}
             icon={menu.viewIcon}
-            isActive={menu.viewId === activeView}
-            onClick={() => handleChangeActiveView(menu.viewId)}
+            isActive={menu.viewPath === activeView}
+            onClick={() => handleChangeActiveView(menu.viewPath)}
           />
         ))}
       </div>

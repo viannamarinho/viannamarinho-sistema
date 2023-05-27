@@ -1,6 +1,7 @@
 'use client'
 
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 
 import { viewsMainMenuData, viewsSecondaryMenuData } from '@/data/viewsData'
 
@@ -10,12 +11,27 @@ export const ViewsContext = createContext<ViewsContextData>(
   {} as ViewsContextData
 )
 
-const ViewsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [activeView, setActiveView] = useState(viewsMainMenuData[0].viewId)
+function getLastWordFromPath(path: string) {
+  const pathParts = path.split('/')
+  const lastWord = pathParts[pathParts.length - 1]
+  return lastWord
+}
 
-  const handleChangeActiveView = (viewId: string) => {
-    setActiveView(viewId)
+const ADMIN_BASE_URL = '/admin/view/'
+
+const ViewsProvider = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const [activeView, setActiveView] = useState(viewsMainMenuData[0].viewPath)
+
+  const handleChangeActiveView = (viewPath: string) => {
+    router.push(ADMIN_BASE_URL + viewPath)
   }
+
+  useEffect(() => {
+    setActiveView(getLastWordFromPath(pathname))
+  }, [router, pathname])
 
   return (
     <ViewsContext.Provider
