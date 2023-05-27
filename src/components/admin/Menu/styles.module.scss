@@ -31,7 +31,6 @@
   flex: 1;
 
   padding: 0 $spacing-small;
-  // padding: $spacing-small;
   // border: 1px solid blue;
 }
 
@@ -42,14 +41,4 @@
 
   padding: 0 $spacing-small;
   // border: 1px solid green;
-}
-
-.admin_menu__button {
-  width: 100%;
-  height: fit-content;
-  padding: 12px 15px;
-  cursor: pointer;
-
-  font-size: 15px;
-  text-align: left;
 }

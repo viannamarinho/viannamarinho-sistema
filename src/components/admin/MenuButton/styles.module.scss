@@ -1,0 +1,22 @@
+@import '@/styles/variables.module.scss';
+
+.menu_button {
+  display: flex;
+  justify-content: flex-start;
+
+  font-size: 13px;
+  line-height: 13px;
+
+  svg {
+    width: 18px;
+  }
+
+  &.active {
+    color: white;
+    background-color: cornflowerblue;
+
+    svg {
+      color: white;
+    }
+  }
+}

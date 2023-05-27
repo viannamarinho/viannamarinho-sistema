@@ -1,0 +1,26 @@
+@import '@/styles/variables.module.scss';
+
+.user_details {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  p {
+    margin-right: 6px;
+    opacity: 0.6;
+    transition: .2s;
+
+    font-size: 15px;
+    font-weight: 300;
+
+    b {
+      font-weight: 400;
+    }
+  }
+
+  &:hover {
+    p {
+      opacity: 1;
+    }
+  }
+}

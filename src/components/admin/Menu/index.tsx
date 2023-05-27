@@ -2,7 +2,7 @@
 
 import styles from './styles.module.scss'
 
-import { Button } from '@/components/inputs/Button'
+import MenuButton from '@/components/admin/MenuButton'
 
 import { useViews } from '@/contexts/ViewsContext'
 
@@ -14,12 +14,6 @@ interface IMenuData {
   viewTitle: string
   viewLegend: string
   viewIcon: JSX.Element
-}
-
-interface IMenuButton {
-  menu: IMenuData
-  isActive?: boolean
-  onClick?: () => void
 }
 
 export default function Menu() {
@@ -34,7 +28,8 @@ export default function Menu() {
         {viewsMainMenuData.map((menu: IMenuData) => (
           <MenuButton
             key={menu.viewId}
-            menu={menu}
+            label={menu.viewLabel}
+            icon={menu.viewIcon}
             isActive={menu.viewId === activeView}
             onClick={() => handleChangeActiveView(menu.viewId)}
           />
@@ -44,24 +39,13 @@ export default function Menu() {
         {viewsSecondaryMenuData.map((menu: IMenuData) => (
           <MenuButton
             key={menu.viewId}
-            menu={menu}
+            label={menu.viewLabel}
+            icon={menu.viewIcon}
             isActive={menu.viewId === activeView}
             onClick={() => handleChangeActiveView(menu.viewId)}
           />
         ))}
       </div>
     </aside>
-  )
-}
-
-function MenuButton({ menu, isActive, onClick }: IMenuButton) {
-  return (
-    // <button className={styles.admin_menu__button}>{menu.viewLabel}</button>
-    <Button
-      label={menu.viewLabel}
-      size="medium"
-      variant={isActive ? 'contained' : 'outlined'}
-      onClick={onClick}
-    />
   )
 }
