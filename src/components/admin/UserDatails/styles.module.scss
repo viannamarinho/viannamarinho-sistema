@@ -1,6 +1,15 @@
 @import '@/styles/variables.module.scss';
 
 .user_details {
+  position: relative;
+  display: flex;
+
+  #user_datails__menu {
+    border: 1px solid red !important;
+  }
+}
+
+.user_details__container {
   display: flex;
   align-items: center;
   cursor: pointer;
