@@ -1,4 +1,8 @@
+'use client'
+
 import React, { createContext, useContext, useState } from 'react'
+
+import { viewsMainMenuData, viewsSecondaryMenuData } from '@/data/viewsData'
 
 import { ViewsContextData } from './types'
 
@@ -7,12 +11,17 @@ export const ViewsContext = createContext<ViewsContextData>(
 )
 
 const ViewsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [data, setData] = useState([])
+  const [activeView, setActiveView] = useState(viewsMainMenuData[0].viewId)
+
+  const handleChangeActiveView = (viewId: string) => {
+    setActiveView(viewId)
+  }
 
   return (
     <ViewsContext.Provider
       value={{
-        data
+        activeView,
+        handleChangeActiveView
       }}
     >
       {children}

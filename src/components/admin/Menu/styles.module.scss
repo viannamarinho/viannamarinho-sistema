@@ -6,3 +6,50 @@
   width: $admin-menu-width;
   height: 100%;
 }
+
+.admin_menu__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: $admin-header-height;
+  margin-bottom: $spacing-small;
+
+  img {
+    height: 80%;
+  }
+
+  border-bottom: 1px solid lightgray;
+
+  // border: 1px solid red;
+}
+
+.admin_menu__wrapper_main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  flex: 1;
+
+  padding: 0 $spacing-small;
+  // padding: $spacing-small;
+  // border: 1px solid blue;
+}
+
+.admin_menu__wrapper_secondary {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  padding: 0 $spacing-small;
+  // border: 1px solid green;
+}
+
+.admin_menu__button {
+  width: 100%;
+  height: fit-content;
+  padding: 12px 15px;
+  cursor: pointer;
+
+  font-size: 15px;
+  text-align: left;
+}

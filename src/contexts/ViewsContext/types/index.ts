@@ -1,3 +1,4 @@
 export interface ViewsContextData {
-  data?: any
+  activeView: string
+  handleChangeActiveView: (viewId: string) => void
 }

@@ -3,19 +3,43 @@
 .admin_page {
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
+  
+  background-color: $color-background;
 }
 
 .admin_page__container {
   display: flex;
   width: 100%;
-  height: calc(100% - $admin-header-height);
+  flex: 1;
 }
 
-.admin_page__menu {}
+.admin_page__menu {
+  padding-bottom: $spacing-small;
 
-.admin_page__views {
+  background-color: $color-main;
+  border-right: 1px solid lightgray;
+}
+
+.admin_page__views_container {
   display: flex;
-  width: calc(100% - $admin-menu-width);
+  flex-direction: column;
+  flex: 1;
   height: 100%;
+}
+
+.admin_page__header {
+  display: flex;
+  height: $admin-header-height;
+  
+  background-color: $color-main;
+}
+
+.admin_page__views_wrapper {
+  display: flex;
+  flex: 1;
+  border-radius: 6px;
+  margin: $spacing-small;
+
+  box-shadow: 0 0 12px #e2e2e274;
+  background-color: $color-main;
 }

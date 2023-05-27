@@ -14,12 +14,18 @@ export default function AdminLayout({
       <body>
         <AdminProviders>
           <div className={`window ${styles.admin_page}`}>
-            <Header />
             <div className={styles.admin_page__container}>
               <div className={styles.admin_page__menu}>
                 <Menu />
               </div>
-              <div className={styles.admin_page__views}>{children}</div>
+              <div className={styles.admin_page__views_container}>
+                <div className={styles.admin_page__header}>
+                  <Header />
+                </div>
+                <div className={styles.admin_page__views_wrapper}>
+                  {children}
+                </div>
+              </div>
             </div>
           </div>
         </AdminProviders>
