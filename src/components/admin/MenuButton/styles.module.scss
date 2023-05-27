@@ -2,13 +2,13 @@
 
 .menu_button {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 
-  font-size: 13px;
-  line-height: 13px;
+  font-size: 13px !important;
+  line-height: 13px !important;
 
   svg {
-    width: 18px;
+    width: 18px !important;
   }
 
   &.active {
