@@ -28,10 +28,10 @@ export default function SettingsView() {
       </nav>
       <nav className={styles.admin_view__settings__content}>
         <TabPanel value={activeTab} index={0}>
-          Configurações Gerais
+          Minha Conta
         </TabPanel>
         <TabPanel value={activeTab} index={1}>
-          Minha Conta
+          Configurações Gerais
         </TabPanel>
         <TabPanel value={activeTab} index={2}>
           Controle de Acessos
@@ -94,8 +94,8 @@ function SettingsViewHeader({
           onChange={setActiveTab}
           aria-label="Listagem de Menus das Configurações"
         >
-          <Tab label="Configurações Gerais" {...a11yProps(0)} />
-          <Tab label="Minha Conta" {...a11yProps(1)} />
+          <Tab label="Minha Conta" {...a11yProps(0)} />
+          <Tab label="Configurações Gerais" {...a11yProps(1)} />
           <Tab label="Controle de Acessos" {...a11yProps(2)} />
         </Tabs>
       </Box>

@@ -10,3 +10,48 @@
 
   border-bottom: 1px solid lightgray;
 }
+
+.admin_header__label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  column-gap: 8px;
+}
+
+.admin_header__label_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 41px;
+  height: 41px;
+  border-radius: 4px;
+  
+  svg {
+    font-size: 28px;
+    
+    color: $dark-font;
+  }
+
+  border: 1px solid lightgray;
+}
+
+.admin_header__label_content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+  padding-bottom: 1px;
+
+  color: $dark-font;
+
+  h2 {
+    font-size: 17px;
+    line-height: 17px;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 300;
+  }
+}
