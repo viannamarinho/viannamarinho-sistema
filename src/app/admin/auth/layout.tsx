@@ -14,7 +14,7 @@ export default function AuthLayout({
           <main className={`window ${styles.auth_page}`}>
             <section className={styles.auth_page__form_container}>
               <div className={styles.auth_page__form_header}>
-                <img src="/teste_logo.png" alt="" />
+                <img src="/logo.png" alt="" />
               </div>
               <div className={styles.auth_page__form_content}>{children}</div>
             </section>
