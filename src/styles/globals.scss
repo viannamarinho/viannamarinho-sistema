@@ -62,24 +62,3 @@ body {
   border-radius: 4px;
   background-color: white;
 }
-
-.view__header {
-  display: flex;
-  justify-content: space-between;
-  height: $admin-view-header-height;
-  margin-bottom: $spacing-small;
-
-  // border: 1px solid blue;
-}
-
-.view__header__search {
-  width: 100%;
-  max-width: 380px;
-}
-
-.view__content {
-  display: flex;
-  height: calc(100% - $admin-view-header-height - 10px);
-
-  // border: 1px solid blue;
-}

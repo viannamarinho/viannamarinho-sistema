@@ -1,0 +1,23 @@
+@import '@/styles/variables.module.scss';
+
+.admin_view__digital_form {
+  display: flex;
+  width: 100%;
+}
+
+.view_digital_form__header__search {
+  width: 100%;
+  max-width: 380px;
+}
+
+.view_digital_form__header__inputs {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  width: fit-content;
+
+  span {
+    width: 80px;
+    margin-left: 10px;
+  }
+}

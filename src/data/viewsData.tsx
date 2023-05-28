@@ -1,4 +1,4 @@
-import BaseView from '@/components/admin/views/BaseView'
+import BaseAJView from '@/components/admin/views/BaseAJView'
 import ResumeView from '@/components/admin/views/ResumeView'
 import SearchView from '@/components/admin/views/SearchView'
 import SettingsView from '@/components/admin/views/SettingsView'
@@ -45,7 +45,7 @@ export const viewsMainMenuData = [
         viewTitle: 'Base AJ',
         viewLegend: 'Lorem impsum qua quers koda',
         viewIcon: <HiOutlineDatabase />,
-        viewComponent: <BaseView baseId="base-aj" />
+        viewComponent: <BaseAJView />
       },
       {
         viewId: 'view-base-vma',
@@ -54,7 +54,7 @@ export const viewsMainMenuData = [
         viewTitle: 'Base VMA',
         viewLegend: 'Lorem impsum qua quers koda',
         viewIcon: <HiOutlineDatabase />,
-        viewComponent: <BaseView baseId="base-vma" />
+        viewComponent: <></>
       },
       {
         viewId: 'view-base-oi',
@@ -63,7 +63,7 @@ export const viewsMainMenuData = [
         viewTitle: 'Base OI',
         viewLegend: 'Lorem impsum qua quers koda',
         viewIcon: <HiOutlineDatabase />,
-        viewComponent: <BaseView baseId="base-oi" />
+        viewComponent: <></>
       },
       {
         viewId: 'view-formulario-digital',
@@ -72,7 +72,7 @@ export const viewsMainMenuData = [
         viewTitle: 'Formulário Digital',
         viewLegend: 'Lorem impsum qua quers koda',
         viewIcon: <HiOutlineDatabase />,
-        viewComponent: <BaseView baseId="digital-form" />
+        viewComponent: <></>
       }
     ]
   }
