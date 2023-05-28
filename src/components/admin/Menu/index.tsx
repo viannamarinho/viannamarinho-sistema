@@ -18,6 +18,12 @@ interface IMenuData {
   viewComponent: React.ReactNode
 }
 
+interface IMenuWrapperData {
+  viewsWrapperId: string
+  viewsWrapperLabel: string
+  viewsWrapperMenus: IMenuData[]
+}
+
 export default function Menu() {
   const { activeView, handleChangeActiveView } = useViews()
 
@@ -27,14 +33,24 @@ export default function Menu() {
         <img src="/logo.png" alt="" />
       </div>
       <div className={styles.admin_menu__wrapper_main}>
-        {viewsMainMenuData.map((menu: IMenuData) => (
-          <MenuButton
-            key={menu.viewId}
-            label={menu.viewLabel}
-            icon={menu.viewIcon}
-            isActive={menu.viewPath === activeView}
-            onClick={() => handleChangeActiveView(menu.viewPath)}
-          />
+        {viewsMainMenuData.map((menuWrapper: IMenuWrapperData) => (
+          <span
+            key={menuWrapper.viewsWrapperId}
+            className={styles.admin_menu__wrapper}
+          >
+            <h3 className={styles.admin_menu__wrapper_label}>
+              {menuWrapper.viewsWrapperLabel}
+            </h3>
+            {menuWrapper.viewsWrapperMenus.map((menu: IMenuData) => (
+              <MenuButton
+                key={menu.viewId}
+                label={menu.viewLabel}
+                icon={menu.viewIcon}
+                isActive={menu.viewPath === activeView}
+                onClick={() => handleChangeActiveView(menu.viewPath)}
+              />
+            ))}
+          </span>
         ))}
       </div>
       <div className={styles.admin_menu__wrapper_secondary}>

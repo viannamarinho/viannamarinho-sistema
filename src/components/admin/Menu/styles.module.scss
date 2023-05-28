@@ -20,18 +20,30 @@
   }
 
   border-bottom: 1px solid lightgray;
+}
 
-  // border: 1px solid red;
+.admin_menu__wrapper {
+  display: flex;
+  flex-direction: column;
+  width:  100%;
+  row-gap: 8px;
+  margin-bottom: 15px;
+}
+
+.admin_menu__wrapper_label {
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .admin_menu__wrapper_main {
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
   flex: 1;
 
   padding: 0 $spacing-small;
-  // border: 1px solid blue;
 }
 
 .admin_menu__wrapper_secondary {
@@ -40,5 +52,4 @@
   row-gap: 8px;
 
   padding: 0 $spacing-small;
-  // border: 1px solid green;
 }

@@ -12,12 +12,22 @@ interface Props {
 
 export default function View({ params }: Props) {
   const getComponentByViewId = (viewId: string) => {
-    const mainMenuView = viewsMainMenuData.find(
-      (view) => view.viewPath === viewId
-    )
-    const secondaryMenuView = viewsSecondaryMenuData.find(
-      (view) => view.viewPath === viewId
-    )
+    let mainMenuView
+    let secondaryMenuView
+
+    for (const wrapper of viewsMainMenuData) {
+      for (const menu of wrapper.viewsWrapperMenus) {
+        if (menu.viewPath === viewId) {
+          mainMenuView = menu
+        }
+      }
+    }
+
+    for (const menu of viewsSecondaryMenuData) {
+      if (menu.viewPath === viewId) {
+        secondaryMenuView = menu
+      }
+    }
 
     if (mainMenuView) {
       return mainMenuView.viewComponent

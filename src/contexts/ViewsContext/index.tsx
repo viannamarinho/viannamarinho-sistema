@@ -23,7 +23,9 @@ const ViewsProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter()
   const pathname = usePathname()
 
-  const [activeView, setActiveView] = useState(viewsMainMenuData[0].viewPath)
+  const [activeView, setActiveView] = useState(
+    viewsMainMenuData[1].viewsWrapperMenus[0].viewPath
+  )
 
   const handleChangeActiveView = (viewPath: string) => {
     router.push(ADMIN_BASE_URL + viewPath)
