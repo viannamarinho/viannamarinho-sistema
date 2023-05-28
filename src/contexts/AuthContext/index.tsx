@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 import { AuthLoginContextData, AuthRegisterContextData } from './types'
+import { validateAuth } from '@/functions/validateAuth'
 
 export const AuthLoginContext = createContext<AuthLoginContextData>(
   {} as AuthLoginContextData
@@ -54,8 +55,13 @@ const AuthLoginProvider = ({ children }: { children: React.ReactNode }) => {
     if (formIsValidated) {
       // Enviar o formulário se for válido
       setLoginIsLoading(true)
-      // ...
-      console.log('pepino')
+
+      const authValidated = validateAuth(inputValueEmail, inputValuePassword)
+
+      if (!authValidated) {
+        return
+      }
+
       router.push('/admin/view/resume')
     }
   }
