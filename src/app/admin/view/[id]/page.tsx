@@ -3,14 +3,13 @@
 import styles from '@/styles/pages/admin/view.module.scss'
 
 import { viewsMainMenuData, viewsSecondaryMenuData } from '@/data/viewsData'
-
 interface Props {
   params: {
     id: string
   }
 }
 
-export default function View({ params }: Props) {
+export default async function View({ params }: Props) {
   const getComponentByViewId = (viewId: string) => {
     let mainMenuView
     let secondaryMenuView
