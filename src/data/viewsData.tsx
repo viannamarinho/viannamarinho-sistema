@@ -23,7 +23,8 @@ export const viewsMainMenuData = [
         viewPath: 'resume',
         viewLabel: 'Resumo',
         viewTitle: 'Resumo',
-        viewLegend: 'Lorem impsum qua quers koda',
+        viewLegend:
+          'Visão geral dos principais dados e estatísticas da empresa',
         viewIcon: <HiOutlineChartPie />,
         viewComponent: <ResumeView />
       },
@@ -32,7 +33,7 @@ export const viewsMainMenuData = [
         viewPath: 'search',
         viewLabel: 'Busca Completa',
         viewTitle: 'Busca Completa',
-        viewLegend: 'Lorem impsum qua quers koda',
+        viewLegend: 'Pesquisas detalhadas em toda a base de dados',
         viewIcon: <HiOutlineDocumentSearch />,
         viewComponent: <SearchView />
       }
@@ -47,7 +48,7 @@ export const viewsMainMenuData = [
         viewPath: 'base-aj',
         viewLabel: 'Base AJ',
         viewTitle: 'Base AJ',
-        viewLegend: 'Lorem impsum qua quers koda',
+        viewLegend: 'Base de dados AJ',
         viewIcon: <HiOutlineDatabase />,
         viewComponent: <BaseAJView />
       },
@@ -56,7 +57,7 @@ export const viewsMainMenuData = [
         viewPath: 'base-vma',
         viewLabel: 'Base VMA',
         viewTitle: 'Base VMA',
-        viewLegend: 'Lorem impsum qua quers koda',
+        viewLegend: 'Base de dados VMA',
         viewIcon: <HiOutlineDatabase />,
         viewComponent: <BaseVMAView />
       },
@@ -65,7 +66,7 @@ export const viewsMainMenuData = [
         viewPath: 'base-oi',
         viewLabel: 'Base OI',
         viewTitle: 'Base OI',
-        viewLegend: 'Lorem impsum qua quers koda',
+        viewLegend: 'Base de dados OI',
         viewIcon: <HiOutlineDatabase />,
         viewComponent: <BaseOIView />
       },
@@ -74,7 +75,7 @@ export const viewsMainMenuData = [
         viewPath: 'formulario-digital',
         viewLabel: 'Formulário Digital',
         viewTitle: 'Formulário Digital',
-        viewLegend: 'Lorem impsum qua quers koda',
+        viewLegend: 'Base de dados do Formulário Digital',
         viewIcon: <HiOutlineDatabase />,
         viewComponent: <BaseDigitalFormView />
       }
@@ -88,7 +89,8 @@ export const viewsSecondaryMenuData = [
     viewPath: 'settings',
     viewLabel: 'Configurações',
     viewTitle: 'Configurações',
-    viewLegend: 'Lorem impsum qua quers koda',
+    viewLegend:
+      'Controle de acesso e personalização das configurações do dashboard',
     viewIcon: <HiOutlineCog />,
     viewComponent: <SettingsView />
   }

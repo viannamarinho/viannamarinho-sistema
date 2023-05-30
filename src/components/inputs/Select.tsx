@@ -6,19 +6,17 @@ import MUISelect from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 
-type SelectOptionsProps = [
-  {
-    value: string
-    label: string
-  }
-][]
+interface SelectOptionsProps {
+  valueId: string
+  valueLabel: string
+}
 
 interface SelectProps {
   placeholder: string
   label: string
   labelId: string
-  options?: SelectOptionsProps
-  selectedValue?: SelectOptionsProps
+  options?: SelectOptionsProps[]
+  selectedValue?: SelectOptionsProps | object
   onChange: (e: any) => void
 }
 
@@ -33,12 +31,12 @@ export function Select(props: SelectProps) {
         placeholder={placeholder}
         labelId={labelId}
         value={selectedValue}
-        // size="small"
+        size="small"
         onChange={(e) => onChange(e.target.value)}
       >
         {options?.map((option: any) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
+          <MenuItem key={option.valueId} value={option.valueId}>
+            {option.valueLabel}
           </MenuItem>
         ))}
       </MUISelect>

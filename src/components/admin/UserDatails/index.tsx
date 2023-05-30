@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import styles from './styles.module.scss'
 
 import { Avatar, Menu, MenuItem } from '@mui/material'
@@ -8,6 +9,8 @@ import { Avatar, Menu, MenuItem } from '@mui/material'
 import { stringAvatar } from '@/functions/stringifyName'
 
 export default function UserDatails() {
+  const router = useRouter()
+
   const userName = 'Henrique Garcia'
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -17,6 +20,11 @@ export default function UserDatails() {
   }
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+  const handleGoToSettings = () => {
+    handleClose()
+    router.push('/admin/view/settings')
   }
 
   return (
@@ -51,8 +59,8 @@ export default function UserDatails() {
           }
         }}
       >
-        <MenuItem onClick={handleClose}>Minha Conta</MenuItem>
-        <MenuItem onClick={handleClose}>Configurações</MenuItem>
+        <MenuItem onClick={handleGoToSettings}>Minha Conta</MenuItem>
+        <MenuItem onClick={handleGoToSettings}>Configurações</MenuItem>
         <MenuItem onClick={handleClose}>Sair</MenuItem>
       </Menu>
     </div>

@@ -5,8 +5,11 @@ import styles from './styles.module.scss'
 
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
-import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
+
+import MyAccountView from './MyAccountView'
+import GeneralSettingsView from './GeneralSettingsView'
+import AccessControlView from './AccessControlView'
 
 export default function SettingsView() {
   const [activeTab, setActiveTab] = useState(0)
@@ -28,17 +31,15 @@ export default function SettingsView() {
       </nav>
       <nav className={styles.admin_view__settings__content}>
         <TabPanel value={activeTab} index={0}>
-          Minha Conta
+          <MyAccountView />
         </TabPanel>
         <TabPanel value={activeTab} index={1}>
-          Configurações Gerais
+          <GeneralSettingsView />
         </TabPanel>
         <TabPanel value={activeTab} index={2}>
-          Controle de Acessos
+          <AccessControlView />
         </TabPanel>
-        {/* <TableListing tableData={tableData} /> */}
       </nav>
-      {/* POSSIBILIDADE DE IMPLEMENTAR A PAGINAÇÃO AQUI */}
     </div>
   )
 }
@@ -63,13 +64,10 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
+      className={styles.admin_view__settings__panel}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && children}
     </div>
   )
 }
