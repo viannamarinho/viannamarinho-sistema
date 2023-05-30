@@ -1,6 +1,17 @@
 'use client'
 
-import IconButton from '@mui/material/IconButton'
+import { styled } from '@mui/material/styles'
+import Button from '@mui/material/Button'
+
+const CustomIconButton = styled(Button)({
+  width: '37px',
+  minWidth: '37px',
+  height: '37px',
+  padding: 0,
+  '& svg': {
+    fontSize: '19px'
+  }
+})
 
 interface IconButtonProps {
   icon?: any
@@ -13,8 +24,13 @@ export function ButtonIcon(props: IconButtonProps) {
   const { icon, size = 'small', ariaLabel, onClick } = props
 
   return (
-    <IconButton aria-label={ariaLabel} size={size} onClick={onClick}>
+    <CustomIconButton
+      aria-label={ariaLabel}
+      size={size}
+      variant="outlined"
+      onClick={onClick}
+    >
       {icon}
-    </IconButton>
+    </CustomIconButton>
   )
 }
