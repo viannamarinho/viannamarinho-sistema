@@ -7,25 +7,18 @@ import { TableDigitalForm } from '../../tables/TableDigitalForm'
 
 interface IBaseViewProps {
   tableId: string
-  tableData: any
   viewHeader: React.ReactNode
 }
 
-export default function BaseView({
-  tableId,
-  tableData,
-  viewHeader
-}: IBaseViewProps) {
+export default function BaseView({ tableId, viewHeader }: IBaseViewProps) {
   return (
     <div className={styles.view_base}>
       <nav className={styles.view_base__header}>{viewHeader}</nav>
       <nav className={styles.view_base__content}>
-        {tableId === 'base_aj' && <TableAJ tableData={tableData} />}
-        {tableId === 'base_vma' && <TableVMA tableData={tableData} />}
-        {tableId === 'base_oi' && <TableOI tableData={tableData} />}
-        {tableId === 'base_digital_form' && (
-          <TableDigitalForm tableData={tableData} />
-        )}
+        {tableId === 'base_aj' && <TableAJ />}
+        {tableId === 'base_vma' && <TableVMA />}
+        {tableId === 'base_oi' && <TableOI />}
+        {tableId === 'base_digital_form' && <TableDigitalForm />}
       </nav>
       {/* POSSIBILIDADE DE IMPLEMENTAR A PAGINAÇÃO AQUI */}
     </div>

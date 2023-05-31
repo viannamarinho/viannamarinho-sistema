@@ -6,21 +6,18 @@ import { HiOutlineRefresh, HiOutlineFilter } from 'react-icons/hi'
 
 import BaseView from '../BaseView'
 
-import { tableData } from '@/data/tableData'
 import { InputSearch } from '@/components/inputs/InputSearch'
 import { ButtonIcon } from '@/components/inputs/ButtonIcon'
 
-export default function BaseDigitalFormView() {
-  const [searchedValue, setSearchedValue] = useState('')
+import { useBaseDigitalForm } from '@/contexts/BaseDigitalFormContext'
 
-  const handleChangeSearch = (searchValue: string) => {
-    setSearchedValue(searchValue)
-  }
+export default function BaseDigitalFormView() {
+  const { searchedValue, handleChangeSearch } = useBaseDigitalForm()
 
   return (
     <div className={styles.admin_view__digital_form}>
       <BaseView
-        tableData={tableData}
+        tableId="base_digital_form"
         viewHeader={
           <BaseDigitalFormViewHeader
             searchedValue={searchedValue}

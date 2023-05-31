@@ -5,11 +5,7 @@ import styles from './styles.module.scss'
 
 import { Table } from 'evergreen-ui'
 
-interface ITableOIProps {
-  tableData: any
-}
-
-export function TableOI({ tableData }: ITableOIProps) {
+export function TableOI() {
   // const [order, setOrder] = useState<Order>('asc')
   // const [orderBy, setOrderBy] = useState<keyof Data>('calories')
   // const [selected, setSelected] = useState<readonly string[]>([])
@@ -26,7 +22,7 @@ export function TableOI({ tableData }: ITableOIProps) {
           <Table.TextHeaderCell>ltv</Table.TextHeaderCell>
         </Table.Head>
         <Table.Body height={`calc(100% - 40px)`} overflow="auto">
-          {tableData?.map((data: any) => (
+          {/* {tableData?.map((data: any) => (
             <Table.Row
               key={data.id}
               height={36}
@@ -37,7 +33,7 @@ export function TableOI({ tableData }: ITableOIProps) {
               <Table.TextCell>{data.lastActivity}</Table.TextCell>
               <Table.TextCell isNumber>{data.ltv}</Table.TextCell>
             </Table.Row>
-          ))}
+          ))} */}
         </Table.Body>
       </Table>
     </div>

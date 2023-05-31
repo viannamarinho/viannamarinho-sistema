@@ -5,11 +5,7 @@ import styles from './styles.module.scss'
 
 import { Table } from 'evergreen-ui'
 
-interface ITableDigitalFormProps {
-  tableData: any
-}
-
-export function TableDigitalForm({ tableData }: ITableDigitalFormProps) {
+export function TableDigitalForm() {
   // const [order, setOrder] = useState<Order>('asc')
   // const [orderBy, setOrderBy] = useState<keyof Data>('calories')
   // const [selected, setSelected] = useState<readonly string[]>([])
@@ -26,7 +22,7 @@ export function TableDigitalForm({ tableData }: ITableDigitalFormProps) {
           <Table.TextHeaderCell>ltv</Table.TextHeaderCell>
         </Table.Head>
         <Table.Body height={`calc(100% - 40px)`} overflow="auto">
-          {tableData?.map((data: any) => (
+          {/* {tableData?.map((data: any) => (
             <Table.Row
               key={data.id}
               height={36}
@@ -37,7 +33,7 @@ export function TableDigitalForm({ tableData }: ITableDigitalFormProps) {
               <Table.TextCell>{data.lastActivity}</Table.TextCell>
               <Table.TextCell isNumber>{data.ltv}</Table.TextCell>
             </Table.Row>
-          ))}
+          ))} */}
         </Table.Body>
       </Table>
     </div>

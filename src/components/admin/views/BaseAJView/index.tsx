@@ -6,22 +6,18 @@ import { HiOutlineRefresh, HiOutlineFilter } from 'react-icons/hi'
 
 import BaseView from '../BaseView'
 
-import { tableData } from '@/data/tableData'
 import { InputSearch } from '@/components/inputs/InputSearch'
 import { ButtonIcon } from '@/components/inputs/ButtonIcon'
 
-export default function BaseAJView() {
-  const [searchedValue, setSearchedValue] = useState('')
+import { useBaseAJ } from '@/contexts/BaseAJContext'
 
-  const handleChangeSearch = (searchValue: string) => {
-    setSearchedValue(searchValue)
-  }
+export default function BaseAJView() {
+  const { searchedValue, handleChangeSearch } = useBaseAJ()
 
   return (
     <div className={styles.admin_view__base_aj}>
       <BaseView
         tableId="base_aj"
-        tableData={tableData}
         viewHeader={
           <BaseAJViewHeader
             searchedValue={searchedValue}

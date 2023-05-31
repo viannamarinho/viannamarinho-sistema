@@ -1,7 +1,11 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useMemo, useState } from 'react'
+
+import { baseDigitalFormData } from '@/data/bases/baseDigitalForm'
 
 interface BaseDigitalFormContextData {
-  data?: any
+  formattedBaseDigitalFormData: any
+  searchedValue: string
+  handleChangeSearch: (searchValue: string) => void
 }
 
 interface BaseDigitalFormProviderProps {
@@ -15,12 +19,40 @@ export const BaseDigitalFormContext = createContext<BaseDigitalFormContextData>(
 const BaseDigitalFormProvider = ({
   children
 }: BaseDigitalFormProviderProps) => {
-  const [data, setData] = useState([])
+  // const [order, setOrder] = useState<Order>('asc')
+  // const [orderBy, setOrderBy] = useState<keyof Data>('calories')
+  // const [selected, setSelected] = useState<readonly string[]>([])
+  // const [page, setPage] = useState(0)
+  // const [dense, setDense] = useState(false)
+  // const [rowsPerPage, setRowsPerPage] = useState(5)
+
+  const [searchedValue, setSearchedValue] = useState('')
+
+  const handleChangeSearch = (searchValue: string) => {
+    setSearchedValue(searchValue)
+  }
+
+  const formattedBaseDigitalFormData = useMemo(() => {
+    if (searchedValue !== '') {
+      return baseDigitalFormData.filter((item) => {
+        return Object.values(item).some((value) => {
+          if (typeof value === 'string') {
+            return value.toLowerCase().includes(searchedValue.toLowerCase())
+          }
+          return false
+        })
+      })
+    }
+
+    return baseDigitalFormData
+  }, [searchedValue])
 
   return (
     <BaseDigitalFormContext.Provider
       value={{
-        data
+        formattedBaseDigitalFormData,
+        searchedValue,
+        handleChangeSearch
       }}
     >
       {children}

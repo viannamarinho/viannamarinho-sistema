@@ -5,11 +5,7 @@ import styles from './styles.module.scss'
 
 import { Table } from 'evergreen-ui'
 
-interface ITableVMAProps {
-  tableData: any
-}
-
-export function TableVMA({ tableData }: ITableVMAProps) {
+export function TableVMA() {
   // const [order, setOrder] = useState<Order>('asc')
   // const [orderBy, setOrderBy] = useState<keyof Data>('calories')
   // const [selected, setSelected] = useState<readonly string[]>([])
@@ -26,7 +22,7 @@ export function TableVMA({ tableData }: ITableVMAProps) {
           <Table.TextHeaderCell>ltv</Table.TextHeaderCell>
         </Table.Head>
         <Table.Body height={`calc(100% - 40px)`} overflow="auto">
-          {tableData?.map((data: any) => (
+          {/* {tableData?.map((data: any) => (
             <Table.Row
               key={data.id}
               height={36}
@@ -37,7 +33,7 @@ export function TableVMA({ tableData }: ITableVMAProps) {
               <Table.TextCell>{data.lastActivity}</Table.TextCell>
               <Table.TextCell isNumber>{data.ltv}</Table.TextCell>
             </Table.Row>
-          ))}
+          ))} */}
         </Table.Body>
       </Table>
     </div>

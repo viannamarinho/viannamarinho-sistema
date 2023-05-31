@@ -1,7 +1,11 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useMemo, useState } from 'react'
+
+import { baseVMAData } from '@/data/bases/baseVMA'
 
 interface BaseVMAContextData {
-  data?: any
+  formattedBaseVMAData: any
+  searchedValue: string
+  handleChangeSearch: (searchValue: string) => void
 }
 
 interface BaseVMAProviderProps {
@@ -13,12 +17,40 @@ export const BaseVMAContext = createContext<BaseVMAContextData>(
 )
 
 const BaseVMAProvider = ({ children }: BaseVMAProviderProps) => {
-  const [data, setData] = useState([])
+  // const [order, setOrder] = useState<Order>('asc')
+  // const [orderBy, setOrderBy] = useState<keyof Data>('calories')
+  // const [selected, setSelected] = useState<readonly string[]>([])
+  // const [page, setPage] = useState(0)
+  // const [dense, setDense] = useState(false)
+  // const [rowsPerPage, setRowsPerPage] = useState(5)
+
+  const [searchedValue, setSearchedValue] = useState('')
+
+  const handleChangeSearch = (searchValue: string) => {
+    setSearchedValue(searchValue)
+  }
+
+  const formattedBaseVMAData = useMemo(() => {
+    if (searchedValue !== '') {
+      return baseVMAData.filter((item) => {
+        return Object.values(item).some((value) => {
+          if (typeof value === 'string') {
+            return value.toLowerCase().includes(searchedValue.toLowerCase())
+          }
+          return false
+        })
+      })
+    }
+
+    return baseVMAData
+  }, [searchedValue])
 
   return (
     <BaseVMAContext.Provider
       value={{
-        data
+        formattedBaseVMAData,
+        searchedValue,
+        handleChangeSearch
       }}
     >
       {children}

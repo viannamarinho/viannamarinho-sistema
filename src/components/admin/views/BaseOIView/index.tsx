@@ -6,21 +6,18 @@ import { HiOutlineRefresh, HiOutlineFilter } from 'react-icons/hi'
 
 import BaseView from '../BaseView'
 
-import { tableData } from '@/data/tableData'
 import { InputSearch } from '@/components/inputs/InputSearch'
 import { ButtonIcon } from '@/components/inputs/ButtonIcon'
 
-export default function BaseOIView() {
-  const [searchedValue, setSearchedValue] = useState('')
+import { useBaseOI } from '@/contexts/BaseOIContext'
 
-  const handleChangeSearch = (searchValue: string) => {
-    setSearchedValue(searchValue)
-  }
+export default function BaseOIView() {
+  const { searchedValue, handleChangeSearch } = useBaseOI()
 
   return (
     <div className={styles.admin_view__base_oi}>
       <BaseView
-        tableData={tableData}
+        tableId="base_oi"
         viewHeader={
           <BaseOIViewHeader
             searchedValue={searchedValue}

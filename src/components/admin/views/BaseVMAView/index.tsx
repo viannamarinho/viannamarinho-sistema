@@ -19,20 +19,17 @@ import DialogActions from '@mui/material/DialogActions'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
 
-import { tableData } from '@/data/tableData'
+import { useBaseVMA } from '@/contexts/BaseVMAContext'
 
 export default function BaseVMAView() {
-  const [isActiveNewUserModal, setIsActiveNewUserModal] = useState(false)
-  const [searchedValue, setSearchedValue] = useState('')
+  const { searchedValue, handleChangeSearch } = useBaseVMA()
 
-  const handleChangeSearch = (searchValue: string) => {
-    setSearchedValue(searchValue)
-  }
+  const [isActiveNewUserModal, setIsActiveNewUserModal] = useState(false)
 
   return (
     <div className={styles.admin_view__base_vma}>
       <BaseView
-        tableData={tableData}
+        tableId="base_vma"
         viewHeader={
           <BaseVMAViewHeader
             searchedValue={searchedValue}
