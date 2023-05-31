@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+// import { useMemo, useState } from 'react'
 import styles from './styles.module.scss'
 
 import { Table } from 'evergreen-ui'
@@ -13,7 +13,7 @@ export function TableVMA() {
   const { currentBaseVMAData } = useBaseVMA()
 
   return (
-    <div className={styles.table_listing}>
+    <div className={styles.table_listing_vma}>
       <Table height="100%" width="fit-content">
         <Table.Head height={60}>
           <Table.TextHeaderCell

@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+// import { useMemo, useState } from 'react'
 import styles from './styles.module.scss'
 
 import { Table } from 'evergreen-ui'
@@ -13,9 +13,9 @@ export function TableOI() {
   const { currentBaseOIData } = useBaseOI()
 
   return (
-    <div className={styles.table_listing}>
+    <div className={styles.table_listing_oi}>
       <Table height="100%" width="fit-content">
-        <Table.Head height={40}>
+        <Table.Head height={60}>
           <Table.TextHeaderCell
             width={baseOITableWidth.id_base_proc}
             flexBasis={baseOITableWidth.id_base_proc}

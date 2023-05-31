@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+// import { useMemo, useState } from 'react'
 import styles from './styles.module.scss'
 
 import { Table } from 'evergreen-ui'
@@ -13,7 +13,7 @@ export function TableDigitalForm() {
   const { currentBaseDigitalFormData } = useBaseDigitalForm()
 
   return (
-    <div className={styles.table_listing}>
+    <div className={styles.table_listing_digital_form}>
       <Table height="100%" width="fit-content">
         <Table.Head height={40}>
           <Table.TextHeaderCell
