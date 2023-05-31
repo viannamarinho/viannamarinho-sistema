@@ -32,6 +32,8 @@ export default function BaseAJView() {
   )
 }
 
+// ============================================================ BASE AJ HEADER
+
 interface IBaseAJViewHeaderProps {
   searchedValue: string
   handleSearch: (searchValue: string) => void
