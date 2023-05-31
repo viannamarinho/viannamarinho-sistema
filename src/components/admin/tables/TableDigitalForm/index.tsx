@@ -5,35 +5,226 @@ import styles from './styles.module.scss'
 
 import { Table } from 'evergreen-ui'
 
+import { useBaseDigitalForm } from '@/contexts/BaseDigitalFormContext'
+
+import { baseDigitalFormTableWidth } from '@/data/basesTableWidth'
+
 export function TableDigitalForm() {
-  // const [order, setOrder] = useState<Order>('asc')
-  // const [orderBy, setOrderBy] = useState<keyof Data>('calories')
-  // const [selected, setSelected] = useState<readonly string[]>([])
-  // const [page, setPage] = useState(0)
-  // const [dense, setDense] = useState(false)
-  // const [rowsPerPage, setRowsPerPage] = useState(5)
+  const { currentBaseDigitalFormData } = useBaseDigitalForm()
 
   return (
     <div className={styles.table_listing}>
-      <Table height="100%">
+      <Table height="100%" width="fit-content">
         <Table.Head height={40}>
-          <Table.TextHeaderCell>Activity</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Last Activity</Table.TextHeaderCell>
-          <Table.TextHeaderCell>ltv</Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.id}
+            flexBasis={baseDigitalFormTableWidth.id}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.analise}
+            flexBasis={baseDigitalFormTableWidth.analise}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.texto_analise}
+            flexBasis={baseDigitalFormTableWidth.texto_analise}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.classe}
+            flexBasis={baseDigitalFormTableWidth.classe}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.valor}
+            flexBasis={baseDigitalFormTableWidth.valor}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.opcao}
+            flexBasis={baseDigitalFormTableWidth.opcao}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.header}
+            flexBasis={baseDigitalFormTableWidth.header}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.campo_adicional}
+            flexBasis={baseDigitalFormTableWidth.campo_adicional}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.pergunta_id}
+            flexBasis={baseDigitalFormTableWidth.pergunta_id}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.num_incidente}
+            flexBasis={baseDigitalFormTableWidth.num_incidente}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.texto}
+            flexBasis={baseDigitalFormTableWidth.texto}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseDigitalFormTableWidth.documentacao}
+            flexBasis={baseDigitalFormTableWidth.documentacao}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
         </Table.Head>
-        <Table.Body height={`calc(100% - 40px)`} overflow="auto">
-          {/* {tableData?.map((data: any) => (
+        <Table.Body
+          width="fit-content"
+          height={`calc(100% - 60px)`}
+          overflowY="auto"
+          overflowX="hidden"
+        >
+          {currentBaseDigitalFormData?.map((data: any) => (
             <Table.Row
               key={data.id}
-              height={36}
+              height={38}
               isSelectable
-              onSelect={() => alert(data.name)}
+              display="flex"
+              // onSelect={() => alert(data.name)}
             >
-              <Table.TextCell>{data.name}</Table.TextCell>
-              <Table.TextCell>{data.lastActivity}</Table.TextCell>
-              <Table.TextCell isNumber>{data.ltv}</Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.id}
+                flexBasis={baseDigitalFormTableWidth.id}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.id}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.analise}
+                flexBasis={baseDigitalFormTableWidth.analise}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.analise}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.texto_analise}
+                flexBasis={baseDigitalFormTableWidth.texto_analise}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.texto_analise}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.classe}
+                flexBasis={baseDigitalFormTableWidth.classe}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.classe}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.valor}
+                flexBasis={baseDigitalFormTableWidth.valor}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.valor}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.opcao}
+                flexBasis={baseDigitalFormTableWidth.opcao}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.opcao}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.header}
+                flexBasis={baseDigitalFormTableWidth.header}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.header}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.campo_adicional}
+                flexBasis={baseDigitalFormTableWidth.campo_adicional}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.campo_adicional}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.pergunta_id}
+                flexBasis={baseDigitalFormTableWidth.pergunta_id}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.pergunta_id}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.num_incidente}
+                flexBasis={baseDigitalFormTableWidth.num_incidente}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.num_incidente}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.texto}
+                flexBasis={baseDigitalFormTableWidth.texto}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.texto}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseDigitalFormTableWidth.documentacao}
+                flexBasis={baseDigitalFormTableWidth.documentacao}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.documentacao}
+              </Table.TextCell>
             </Table.Row>
-          ))} */}
+          ))}
         </Table.Body>
       </Table>
     </div>

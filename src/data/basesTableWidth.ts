@@ -32,3 +32,59 @@ export const baseAJTableWidth = {
   valor_edital_aj: 220,
   classe_edital_aj: 220
 }
+
+export const baseVMATableWidth = {
+  id: 280,
+  user: 280,
+  data: 280,
+  data_aj: 280,
+  protocolo: 280,
+  nome_credor: 280,
+  cpf_cnpj: 280,
+  classe_credor: 280,
+  valor_pleiteado: 280,
+  hab_ou_div_credor: 280,
+  nr_processo_origem: 280,
+  origem_credito: 280,
+  hab_ou_div: 280,
+  pasta_intralinks: 280,
+  area_interna: 280,
+  analise_merito: 280,
+  valor: 280,
+  classe: 280,
+  texto_intralinks: 280,
+  justificativa_intralinks: 280,
+  documentos: 280,
+  pergunta_id: 280
+}
+
+export const baseOITableWidth = {
+  id_base_proc: 200,
+  id_aj: 200,
+  cont_se: 200,
+  id_sisjur: 200,
+  nr_proc: 200,
+  vara: 200,
+  comarca: 200,
+  estado: 200,
+  nome_rz_social: 200,
+  cpf_cnpj: 200,
+  valor: 200,
+  area: 200,
+  classe_credito: 200
+}
+
+export const baseDigitalFormTableWidth = {
+  id: 200,
+  analise: 200,
+  texto_analise: 200,
+  classe: 200,
+  valor: 200,
+  opcao: 200,
+  header: 200,
+  campo_adicional: 200,
+  pergunta_id: 200,
+  num_incidente: 200,
+  texto: 200,
+  documentacao: 200
+}

@@ -18,7 +18,7 @@ export default function BaseView({ tableId, viewHeader }: IBaseViewProps) {
         {tableId === 'base_aj' && <TableAJ />}
         {tableId === 'base_vma' && <TableVMA />}
         {tableId === 'base_oi' && <TableOI />}
-        {tableId === 'base_digital_form' && <TableDigitalForm />}
+        {/* {tableId === 'base_digital_form' && <TableDigitalForm />} */}
       </nav>
       {/* POSSIBILIDADE DE IMPLEMENTAR A PAGINAÇÃO AQUI */}
     </div>

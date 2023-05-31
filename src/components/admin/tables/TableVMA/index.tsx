@@ -5,35 +5,386 @@ import styles from './styles.module.scss'
 
 import { Table } from 'evergreen-ui'
 
+import { useBaseVMA } from '@/contexts/BaseVMAContext'
+
+import { baseVMATableWidth } from '@/data/basesTableWidth'
+
 export function TableVMA() {
-  // const [order, setOrder] = useState<Order>('asc')
-  // const [orderBy, setOrderBy] = useState<keyof Data>('calories')
-  // const [selected, setSelected] = useState<readonly string[]>([])
-  // const [page, setPage] = useState(0)
-  // const [dense, setDense] = useState(false)
-  // const [rowsPerPage, setRowsPerPage] = useState(5)
+  const { currentBaseVMAData } = useBaseVMA()
 
   return (
     <div className={styles.table_listing}>
-      <Table height="100%">
-        <Table.Head height={40}>
-          <Table.TextHeaderCell>Activity</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Last Activity</Table.TextHeaderCell>
-          <Table.TextHeaderCell>ltv</Table.TextHeaderCell>
+      <Table height="100%" width="fit-content">
+        <Table.Head height={60}>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.id}
+            flexBasis={baseVMATableWidth.id}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            ID
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.user}
+            flexBasis={baseVMATableWidth.user}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Usuário
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.data}
+            flexBasis={baseVMATableWidth.data}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Data
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.data_aj}
+            flexBasis={baseVMATableWidth.data_aj}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Data AJ
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.protocolo}
+            flexBasis={baseVMATableWidth.protocolo}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Protocolo
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.nome_credor}
+            flexBasis={baseVMATableWidth.nome_credor}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Nome do Credor
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.cpf_cnpj}
+            flexBasis={baseVMATableWidth.cpf_cnpj}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            CPF ou CNPJ do Credor
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.classe_credor}
+            flexBasis={baseVMATableWidth.classe_credor}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Classe de Credor
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.valor_pleiteado}
+            flexBasis={baseVMATableWidth.valor_pleiteado}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Valor Pleiteado
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.hab_ou_div_credor}
+            flexBasis={baseVMATableWidth.hab_ou_div_credor}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Habilitação ou Divergência?
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.nr_processo_origem}
+            flexBasis={baseVMATableWidth.nr_processo_origem}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Número do Processo de Origem
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.origem_credito}
+            flexBasis={baseVMATableWidth.origem_credito}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            A Origem do Crédito é
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.hab_ou_div}
+            flexBasis={baseVMATableWidth.hab_ou_div}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Habilitação ou Divergência?
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.pasta_intralinks}
+            flexBasis={baseVMATableWidth.pasta_intralinks}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Pasta Intralinks
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.area_interna}
+            flexBasis={baseVMATableWidth.area_interna}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Área Interna
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.analise_merito}
+            flexBasis={baseVMATableWidth.analise_merito}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Análise de Mérito
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.valor}
+            flexBasis={baseVMATableWidth.valor}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Valor
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.classe}
+            flexBasis={baseVMATableWidth.classe}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Clase
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.texto_intralinks}
+            flexBasis={baseVMATableWidth.texto_intralinks}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Texto Intralinks
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.justificativa_intralinks}
+            flexBasis={baseVMATableWidth.justificativa_intralinks}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Justificativa Intralinks
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.documentos}
+            flexBasis={baseVMATableWidth.documentos}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Documentos
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseVMATableWidth.pergunta_id}
+            flexBasis={baseVMATableWidth.pergunta_id}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Pergunta ID
+          </Table.TextHeaderCell>
         </Table.Head>
-        <Table.Body height={`calc(100% - 40px)`} overflow="auto">
-          {/* {tableData?.map((data: any) => (
+        <Table.Body
+          width="fit-content"
+          height={`calc(100% - 60px)`}
+          overflowY="auto"
+          overflowX="hidden"
+        >
+          {currentBaseVMAData?.map((data: any) => (
             <Table.Row
               key={data.id}
-              height={36}
+              height={38}
               isSelectable
-              onSelect={() => alert(data.name)}
+              display="flex"
+              // onSelect={() => alert(data.name)}
             >
-              <Table.TextCell>{data.name}</Table.TextCell>
-              <Table.TextCell>{data.lastActivity}</Table.TextCell>
-              <Table.TextCell isNumber>{data.ltv}</Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.id}
+                flexBasis={baseVMATableWidth.id}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.id}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.user}
+                flexBasis={baseVMATableWidth.user}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.user}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.data}
+                flexBasis={baseVMATableWidth.data}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.data}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.data_aj}
+                flexBasis={baseVMATableWidth.data_aj}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.data_aj}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.protocolo}
+                flexBasis={baseVMATableWidth.protocolo}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.protocolo}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.nome_credor}
+                flexBasis={baseVMATableWidth.nome_credor}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.nome_credor}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.cpf_cnpj}
+                flexBasis={baseVMATableWidth.cpf_cnpj}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.cpf_cnpj}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.classe_credor}
+                flexBasis={baseVMATableWidth.classe_credor}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.classe_credor}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.valor_pleiteado}
+                flexBasis={baseVMATableWidth.valor_pleiteado}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.valor_pleiteado}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.hab_ou_div_credor}
+                flexBasis={baseVMATableWidth.hab_ou_div_credor}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.hab_ou_div_credor}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.nr_processo_origem}
+                flexBasis={baseVMATableWidth.nr_processo_origem}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.nr_processo_origem}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.origem_credito}
+                flexBasis={baseVMATableWidth.origem_credito}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.origem_credito}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.hab_ou_div}
+                flexBasis={baseVMATableWidth.hab_ou_div}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.hab_ou_div}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.pasta_intralinks}
+                flexBasis={baseVMATableWidth.pasta_intralinks}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.pasta_intralinks}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.area_interna}
+                flexBasis={baseVMATableWidth.area_interna}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.area_interna}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.analise_merito}
+                flexBasis={baseVMATableWidth.analise_merito}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.analise_merito}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.valor}
+                flexBasis={baseVMATableWidth.valor}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.valor}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.classe}
+                flexBasis={baseVMATableWidth.classe}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.classe}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.texto_intralinks}
+                flexBasis={baseVMATableWidth.texto_intralinks}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.texto_intralinks}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.justificativa_intralinks}
+                flexBasis={baseVMATableWidth.justificativa_intralinks}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.justificativa_intralinks}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.documentos}
+                flexBasis={baseVMATableWidth.documentos}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.documentos}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseVMATableWidth.pergunta_id}
+                flexBasis={baseVMATableWidth.pergunta_id}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.pergunta_id}
+              </Table.TextCell>
             </Table.Row>
-          ))} */}
+          ))}
         </Table.Body>
       </Table>
     </div>

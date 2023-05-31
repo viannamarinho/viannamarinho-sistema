@@ -54,7 +54,7 @@ export function TableAJ() {
             flexShrink={0}
             flexGrow={0}
           >
-            Informe o Valor Pleiteado
+            Valor Pleiteado
           </Table.TextHeaderCell>
           <Table.TextHeaderCell
             width={baseAJTableWidth.hab_ou_div}
