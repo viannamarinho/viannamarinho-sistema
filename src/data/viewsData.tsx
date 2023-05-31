@@ -7,11 +7,12 @@ import {
 } from 'react-icons/hi'
 
 import ResumeView from '@/components/admin/views/ResumeView'
+import SearchView from '@/components/admin/views/SearchView'
+import MethodAnalysisView from '@/components/admin/views/MethodAnalysisView'
 import BaseAJView from '@/components/admin/views/BaseAJView'
 import BaseOIView from '@/components/admin/views/BaseOIView'
 import BaseVMAView from '@/components/admin/views/BaseVMAView'
 import BaseDigitalFormView from '@/components/admin/views/DigitalFormView'
-import SearchView from '@/components/admin/views/SearchView'
 import SettingsView from '@/components/admin/views/SettingsView'
 
 export const viewsMainMenuData = [
@@ -52,7 +53,7 @@ export const viewsMainMenuData = [
         viewLegend:
           'Visão geral dos principais dados e estatísticas da empresa',
         viewIcon: <HiOutlineClipboardList />,
-        viewComponent: <ResumeView />
+        viewComponent: <MethodAnalysisView />
       }
     ]
   },
