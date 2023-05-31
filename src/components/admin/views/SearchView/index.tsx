@@ -1,32 +1,28 @@
 'use client'
 
-import { useState } from 'react'
 import styles from './styles.module.scss'
 import { HiOutlineFilter, HiOutlineRefresh } from 'react-icons/hi'
 
 import { InputSearch } from '@/components/inputs/InputSearch'
 import { ButtonIcon } from '@/components/inputs/ButtonIcon'
-import { TableListing } from '../../tables/TableAJ'
+import { TableSearch } from '../../tables/TableSearch'
 
-import { tableData } from '@/data/tableData'
+import { useBaseSearch } from '@/contexts/BaseSearchContext'
 
 export default function SearchView() {
-  const [searchedValue, setSearchedValue] = useState('')
-
-  const handleChangeSearch = (searchValue: string) => {
-    setSearchedValue(searchValue)
-  }
+  const { searchedValue, handleChangeSearch, handleSearch } = useBaseSearch()
 
   return (
     <div className={styles.admin_view__search}>
       <div className={styles.admin_view__search__header}>
         <SearchViewHeader
           searchedValue={searchedValue}
-          handleSearch={handleChangeSearch}
+          handleChangeSearch={handleChangeSearch}
+          handleSearch={handleSearch}
         />
       </div>
       <div className={styles.admin_view__search__content}>
-        <SearchViewTableList />
+        <TableSearch />
       </div>
     </div>
   )
@@ -35,11 +31,13 @@ export default function SearchView() {
 // ============================================================ SEARCH VIEW HEADER
 interface ISearchViewHeaderProps {
   searchedValue: string
-  handleSearch: (searchValue: string) => void
+  handleChangeSearch: (searchValue: string) => void
+  handleSearch: () => void
 }
 
 function SearchViewHeader({
   searchedValue,
+  handleChangeSearch,
   handleSearch
 }: ISearchViewHeaderProps) {
   return (
@@ -48,7 +46,8 @@ function SearchViewHeader({
         <InputSearch
           placeholder="Pesquisar em todas as bases"
           value={searchedValue}
-          onChange={handleSearch}
+          onChange={handleChangeSearch}
+          onClick={handleSearch}
         />
       </div>
 
@@ -73,16 +72,6 @@ function SearchViewHeader({
           />
         </span> */}
       </div>
-    </>
-  )
-}
-
-// ============================================================ SEARCH VIEW TABLE LIST
-
-function SearchViewTableList() {
-  return (
-    <>
-      <TableListing tableData={tableData} />
     </>
   )
 }
