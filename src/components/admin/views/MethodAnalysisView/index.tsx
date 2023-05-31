@@ -1,12 +1,14 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import styles from './styles.module.scss'
 import {
   HiOutlineChatAlt2,
   HiOutlineClipboardList,
   HiOutlineDocumentDuplicate
 } from 'react-icons/hi'
+
+import { useTransition, animated } from 'react-spring'
 
 import { Button } from '@/components/inputs/Button'
 import { Input } from '@/components/inputs/Input'
@@ -34,17 +36,24 @@ export default function MethodAnalysisView() {
 // ========================================================== CHATBOT
 
 function MethodAnalysisChatbot() {
-  const handleAnswerAffirmative = () => {
-    //
-  }
+  const {
+    messages,
+    handleSendMessage,
+    restartChat,
+    chatEnded,
+    isFirstMessage,
+    isMessageMenuActive
+  } = useMethodAnalysis()
 
-  const handleAnswerNegative = () => {
-    //
-  }
+  const transitions = useTransition(messages, {
+    from: { opacity: 0, transform: 'translateY(-10px)' },
+    enter: { opacity: 1, transform: 'translateY(0px)' },
+    trail: 50
+  })
 
-  const handleReloadChat = () => {
-    //
-  }
+  useEffect(() => {
+    // console.log('asdasdasd', isMessageMenuActive)
+  }, [isMessageMenuActive])
 
   return (
     <div className={styles.method_analysis__chat}>
@@ -57,20 +66,75 @@ function MethodAnalysisChatbot() {
         </div>
       </div>
       <div className={styles.method_analysis__chat__container}>
-        <div className={styles.method_analysis__chat__messages_wrapper}></div>
-      </div>
-      <div className={styles.method_analysis__chat__controls}>
-        <span>
-          <Button
-            label="Reiniciar Chat"
-            variant="outlined"
-            onClick={handleReloadChat}
-          />
-        </span>
-        <span>
-          <Button label="Não" onClick={handleAnswerNegative} />
-          <Button label="Sim" onClick={handleAnswerAffirmative} />
-        </span>
+        <div className={styles.chat__messages_container}>
+          <div className={styles.chat__messages_wrapper}>
+            {transitions((style, message) => {
+              // console.log(message)
+              return (
+                <animated.div
+                  className={`${styles.message} ${
+                    message.isFinalQuestion && styles.final_question
+                  } ${
+                    message.isUser ? styles.user_message : styles.bot_message
+                  }`}
+                  style={style}
+                >
+                  {message.content}
+                  {message.select && (
+                    <div className={styles.chat__message__menu}>
+                      {message?.select?.map((menu: any) => (
+                        <button
+                          key={menu.value}
+                          onClick={() => handleSendMessage(menu.value)}
+                        >
+                          {menu.value}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </animated.div>
+              )
+            })}
+          </div>
+        </div>
+        <div className={styles.method_analysis__chat__controls}>
+          <span>
+            {!chatEnded && (
+              <Button
+                label="Reiniciar Chat"
+                variant="outlined"
+                onClick={restartChat}
+              />
+            )}
+          </span>
+          <span>
+            {isFirstMessage ? (
+              <Button
+                label="Iniciar Chat"
+                onClick={() => handleSendMessage('Iniciar')}
+              />
+            ) : chatEnded ? (
+              <Button
+                label="Reiniciar Chat"
+                variant="outlined"
+                onClick={restartChat}
+              />
+            ) : (
+              <>
+                <Button
+                  label="Não"
+                  disabled={isMessageMenuActive}
+                  onClick={() => handleSendMessage('Não')}
+                />
+                <Button
+                  label="Sim"
+                  disabled={isMessageMenuActive}
+                  onClick={() => handleSendMessage('Sim')}
+                />
+              </>
+            )}
+          </span>
+        </div>
       </div>
     </div>
   )

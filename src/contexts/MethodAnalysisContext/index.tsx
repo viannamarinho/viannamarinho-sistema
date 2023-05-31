@@ -7,9 +7,23 @@ import React, {
 } from 'react'
 
 import { baseAJData } from '@/data/bases/baseAJ'
+import { mockQuestions } from '@/data/chatbot'
+
+type Message = {
+  content: string
+  isUser: boolean
+  isFinalQuestion: boolean
+  select?: any
+}
 
 interface MethodAnalysisContextData {
   getBaseAJDataToForm: any
+  messages: Message[]
+  handleSendMessage: (content: string) => void
+  chatEnded: boolean
+  restartChat: () => void
+  isFirstMessage: boolean
+  isMessageMenuActive: boolean
 }
 
 interface MethodAnalysisProviderProps {
@@ -20,17 +34,97 @@ export const MethodAnalysisContext = createContext<MethodAnalysisContextData>(
   {} as MethodAnalysisContextData
 )
 
-const MethodAnalysisProvider = ({ children }: MethodAnalysisProviderProps) => {
-  // const [order, setOrder] = useState<Order>('asc')
-  // const [orderBy, setOrderBy] = useState<keyof Data>('calories')
-  // const [selected, setSelected] = useState<readonly string[]>([])
-  // const [page, setPage] = useState(0)
-  // const [dense, setDense] = useState(false)
-  // const [rowsPerPage, setRowsPerPage] = useState(5)
+const initialMessages: Message[] = [
+  {
+    content: 'Olá! Bem-vindo ao chat.',
+    isUser: false,
+    isFinalQuestion: false,
+    select: []
+  }
+]
 
-  // useEffect(() => {
-  //   console.log(currentMethodAnalysisData)
-  // }, [currentMethodAnalysisData])
+const MethodAnalysisProvider = ({ children }: MethodAnalysisProviderProps) => {
+  const [messages, setMessages] = useState<Message[]>([])
+  const [currentQuestionId, setCurrentQuestionId] = useState('0')
+  const [chatEnded, setChatEnded] = useState(false)
+
+  const [isMessageMenuActive, setIsMessageMenuActive] = useState(false)
+
+  const handleSendMessage = (content: string) => {
+    if (chatEnded) return
+
+    const newMessage: Message = {
+      content,
+      isUser: true,
+      isFinalQuestion: false
+    }
+
+    const currentQuestion: any = mockQuestions.find(
+      (question) => question.id === currentQuestionId
+    )
+
+    if (currentQuestion) {
+      const { options, select, isFinalQuestion } = currentQuestion
+
+      if (isFinalQuestion) return
+
+      const selectedOption = isMessageMenuActive
+        ? select?.find(
+            (select: any) =>
+              select.value.toLowerCase() === content.toLowerCase()
+          )
+        : options?.find(
+            (option: any) =>
+              option.value.toLowerCase() === content.toLowerCase()
+          )
+
+      if (selectedOption) {
+        const nextQuestionId = selectedOption.nextQuestion
+
+        const nextQuestion = mockQuestions.find(
+          (question) => question.id === nextQuestionId
+        )
+
+        if (nextQuestion) {
+          setMessages((prevMessages) => [
+            ...prevMessages,
+            newMessage,
+            {
+              content: nextQuestion.content.toString(),
+              isUser: false,
+              isFinalQuestion: nextQuestion.isFinalQuestion,
+              select: nextQuestion.select
+            }
+          ])
+
+          console.log(nextQuestion.select)
+          setCurrentQuestionId(nextQuestion.id)
+
+          if (nextQuestion.select) {
+            setIsMessageMenuActive(true)
+          } else {
+            setIsMessageMenuActive(false)
+          }
+
+          if (nextQuestion.isFinalQuestion) {
+            setChatEnded(true)
+          }
+        } else {
+          setMessages((prevMessages) => [...prevMessages, newMessage])
+        }
+      }
+    }
+  }
+
+  const restartChat = () => {
+    setMessages(initialMessages)
+    setCurrentQuestionId('0')
+    setChatEnded(false)
+  }
+
+  const isFirstMessage = useMemo(() => {
+    return currentQuestionId === '0'
+  }, [currentQuestionId])
 
   const getBaseAJDataToForm = useMemo(() => {
     return baseAJData[0]
@@ -39,7 +133,13 @@ const MethodAnalysisProvider = ({ children }: MethodAnalysisProviderProps) => {
   return (
     <MethodAnalysisContext.Provider
       value={{
-        getBaseAJDataToForm
+        getBaseAJDataToForm,
+        messages,
+        handleSendMessage,
+        chatEnded,
+        restartChat,
+        isFirstMessage,
+        isMessageMenuActive
       }}
     >
       {children}
