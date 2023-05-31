@@ -1,0 +1,14 @@
+@import '@/styles/variables.module.scss';
+
+.table_listing {
+  // display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.table_listing__wrapper {
+  width: 100% !important;
+  height: calc(100% - 116px);
+  overflow: hidden;
+  border: 1px solid red;
+}

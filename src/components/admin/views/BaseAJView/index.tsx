@@ -20,6 +20,7 @@ export default function BaseAJView() {
   return (
     <div className={styles.admin_view__base_aj}>
       <BaseView
+        tableId="base_aj"
         tableData={tableData}
         viewHeader={
           <BaseAJViewHeader

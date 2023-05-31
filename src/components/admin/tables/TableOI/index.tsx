@@ -1,13 +1,15 @@
+'use client'
+
 import { useMemo, useState } from 'react'
 import styles from './styles.module.scss'
 
 import { Table } from 'evergreen-ui'
 
-interface ITableListingProps {
+interface ITableOIProps {
   tableData: any
 }
 
-export function TableListing({ tableData }: ITableListingProps) {
+export function TableOI({ tableData }: ITableOIProps) {
   // const [order, setOrder] = useState<Order>('asc')
   // const [orderBy, setOrderBy] = useState<keyof Data>('calories')
   // const [selected, setSelected] = useState<readonly string[]>([])

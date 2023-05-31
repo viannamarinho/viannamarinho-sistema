@@ -6,7 +6,7 @@ import { HiOutlineFilter, HiOutlineRefresh } from 'react-icons/hi'
 
 import { InputSearch } from '@/components/inputs/InputSearch'
 import { ButtonIcon } from '@/components/inputs/ButtonIcon'
-import { TableListing } from '../../TableListing'
+import { TableListing } from '../../tables/TableAJ'
 
 import { tableData } from '@/data/tableData'
 
