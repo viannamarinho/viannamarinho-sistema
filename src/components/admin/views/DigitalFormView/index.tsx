@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import styles from './styles.module.scss'
 import { HiOutlineRefresh, HiOutlineFilter } from 'react-icons/hi'
 
@@ -66,13 +65,6 @@ function BaseDigitalFormViewHeader({
           ariaLabel="Filtrar Data"
           onClick={() => console.log('Abrindo modal de filtro...')}
         />
-        {/* <span>
-          <Button
-            label="Criar"
-            size="medium"
-            onClick={() => console.log('Abrindo modal de criação...')}
-          />
-        </span> */}
       </div>
     </>
   )
