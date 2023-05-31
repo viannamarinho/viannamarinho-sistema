@@ -9,7 +9,7 @@ interface IputProps {
   value: string
   error?: boolean
   helperText?: string
-  onChange: (e: any) => void
+  onChange?: (e: any) => void
 }
 
 export function TextArea(props: IputProps) {
@@ -34,7 +34,7 @@ export function TextArea(props: IputProps) {
       size="small"
       fullWidth
       value={value}
-      onChange={(e: any) => onChange(e.target.value)}
+      onChange={(e: any) => onChange && onChange(e.target.value)}
     />
   )
 }
