@@ -26,7 +26,9 @@ export function Select(props: SelectProps) {
 
   return (
     <FormControl fullWidth>
-      <InputLabel id={labelId}>{label}</InputLabel>
+      <InputLabel shrink id={labelId} className="input_label">
+        {label}
+      </InputLabel>
       <MUISelect
         placeholder={placeholder}
         labelId={labelId}

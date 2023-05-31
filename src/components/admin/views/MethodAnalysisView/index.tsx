@@ -394,8 +394,14 @@ function MethodAnalysisForm() {
               </div>
               <div className={styles.textarea}>
                 <TextArea
+                  onlyRead
                   label="Texto"
-                  value={getBaseAJDataToForm.tp_credito}
+                  value="|Discordo Totalmente| |Crédito listado| |Classe|
+                  |Habilitação / Divergência| |ID Sisjur|\n\nVerificamos
+                  que o crédito pleiteado já foi listado pelas recuperandas,
+                  no exato valor requerido pelo credor, na relação de
+                  credores elaborada na forma do art. 51, III, já publicada
+                  nos autos do processo nº 0809863-36.2023.8.19.0001."
                 />
                 <ButtonIcon
                   icon={<HiOutlineDocumentDuplicate />}

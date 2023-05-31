@@ -79,23 +79,29 @@ export function Input(props: IputProps) {
                   </IconButton>
                 </InputAdornment>
               }
+              inputProps={{ style: { fontSize: '14px' } }}
             />
             {error && <FormHelperText>{helperText}</FormHelperText>}
           </FormControl>
         </>
       ) : (
-        <TextField
-          label={label}
-          placeholder={placeholder}
-          error={error}
-          helperText={helperText}
-          variant="outlined"
-          size="small"
-          fullWidth
-          value={value}
-          onChange={(e: any) => onChange(e.target.value)}
-          InputLabelProps={{ shrink: true }}
-        />
+        <FormControl>
+          <InputLabel shrink htmlFor={inputId} className="input_label">
+            {label}
+          </InputLabel>
+          <TextField
+            id={inputId}
+            placeholder={placeholder}
+            error={error}
+            helperText={helperText}
+            variant="outlined"
+            size="small"
+            fullWidth
+            value={value}
+            onChange={(e: any) => onChange(e.target.value)}
+            inputProps={{ style: { fontSize: '14px' } }}
+          />
+        </FormControl>
       )}
     </>
   )

@@ -60,7 +60,13 @@ export default function MultiSelect({
 
   return (
     <FormControl>
-      <InputLabel id="demo-multiple-checkbox-label">Permissões</InputLabel>
+      <InputLabel
+        shrink
+        id="demo-multiple-checkbox-label"
+        className="input_label"
+      >
+        Permissões
+      </InputLabel>
       <Select
         labelId="demo-multiple-checkbox-label"
         id="demo-multiple-checkbox"
