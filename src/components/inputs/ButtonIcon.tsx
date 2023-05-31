@@ -15,17 +15,19 @@ const CustomIconButton = styled(Button)({
 
 interface IconButtonProps {
   icon?: any
+  color?: 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning'
   size: 'small' | 'medium' | 'large'
   ariaLabel: string
   onClick?: () => void
 }
 
 export function ButtonIcon(props: IconButtonProps) {
-  const { icon, size = 'small', ariaLabel, onClick } = props
+  const { icon, color = 'primary', size = 'small', ariaLabel, onClick } = props
 
   return (
     <CustomIconButton
       aria-label={ariaLabel}
+      color={color}
       size={size}
       variant="outlined"
       onClick={onClick}

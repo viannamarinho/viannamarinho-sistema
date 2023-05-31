@@ -38,28 +38,102 @@
   padding: $spacing-small;
 }
 
-.admin_view__settings__panel_header {
+.admin_view__settings__my_account__header {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: $admin-view-header-height - $spacing-small;
-  margin-bottom: $spacing-medium;
+  justify-content: flex-end;
+  align-items: center;
+  width: 150px;
+
+  button {
+    width: fit-content;
+    padding: 3px 12px 1px 12px;
+  }
+}
+
+.admin_view__settings__access_control__header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 340px;
+  column-gap: 6px;
+  padding-right: 5px;
+
+  button {
+    width: fit-content;
+    padding: 3px 12px 1px 12px;
+  }
 
   span {
-    display: flex;
-    // width: fit-content;
-    // column-gap: 6px;
-
     button {
-      // width: fit-content;
+      width: 30px;
+      min-width: 30px;
+      height: 30px;
+      padding: 0;
+  
+      svg {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.admin_view__settings__general_settings__menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 380px;
+  column-gap: 6px;
+  padding: 6px 5px 6px 0;
+
+  button {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    padding: 0;
+
+    svg {
+      font-size: 16px;
+    }
+  }
+
+  // border: 1px solid red;
+
+  .admin_view__settings__general_settings__edit_input {
+    width: calc(100% - 122px);
+    height: 100%;
+    margin-right: 10px;
+
+    // border: 1px solid blue;
+
+    input {
+      height: 13px;
     }
   }
 }
 
 .admin_view__settings__panel_content {
-  height: calc(100% - $admin-view-header-height - 5px);
+  height: 100%;
 }
 
 // .admin_view__settings__modal__new_user {}
 
 // .admin_view__settings__modal__permissions {}
+
+.admin_view__settings__modal__label {
+  margin-bottom: 5px;
+
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.admin_view__settings__modal__inputs_wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  &:first-of-type {
+    margin-bottom: 15px;
+  }
+}

@@ -2,7 +2,8 @@ import {
   HiOutlineChartPie,
   HiOutlineDocumentSearch,
   HiOutlineDatabase,
-  HiOutlineCog
+  HiOutlineCog,
+  HiOutlineClipboardList
 } from 'react-icons/hi'
 
 import ResumeView from '@/components/admin/views/ResumeView'
@@ -36,6 +37,22 @@ export const viewsMainMenuData = [
         viewLegend: 'Pesquisas detalhadas em toda a base de dados',
         viewIcon: <HiOutlineDocumentSearch />,
         viewComponent: <SearchView />
+      }
+    ]
+  },
+  {
+    viewsWrapperId: 'menu-wrapper-tools',
+    viewsWrapperLabel: 'Ferramentas',
+    viewsWrapperMenus: [
+      {
+        viewId: 'view-analysis-merit',
+        viewPath: 'analysis-merit',
+        viewLabel: 'Análise de Mérito',
+        viewTitle: 'Ferramenta de Análise de Mérito',
+        viewLegend:
+          'Visão geral dos principais dados e estatísticas da empresa',
+        viewIcon: <HiOutlineClipboardList />,
+        viewComponent: <ResumeView />
       }
     ]
   },
