@@ -12,7 +12,7 @@ import { ButtonIcon } from '@/components/inputs/ButtonIcon'
 import { useBaseAJ } from '@/contexts/BaseAJContext'
 
 export default function BaseAJView() {
-  const { searchedValue, handleChangeSearch } = useBaseAJ()
+  const { searchedValue, handleChangeSearch, handleSearch } = useBaseAJ()
 
   return (
     <div className={styles.admin_view__base_aj}>
@@ -21,7 +21,8 @@ export default function BaseAJView() {
         viewHeader={
           <BaseAJViewHeader
             searchedValue={searchedValue}
-            handleSearch={handleChangeSearch}
+            handleChangeSearch={handleChangeSearch}
+            handleSearch={handleSearch}
           />
         }
       />
@@ -33,11 +34,13 @@ export default function BaseAJView() {
 
 interface IBaseAJViewHeaderProps {
   searchedValue: string
-  handleSearch: (searchValue: string) => void
+  handleChangeSearch: (searchValue: string) => void
+  handleSearch: () => void
 }
 
 function BaseAJViewHeader({
   searchedValue,
+  handleChangeSearch,
   handleSearch
 }: IBaseAJViewHeaderProps) {
   return (
@@ -46,7 +49,8 @@ function BaseAJViewHeader({
         <InputSearch
           placeholder="Pesquisar em Base AJ"
           value={searchedValue}
-          onChange={handleSearch}
+          onChange={handleChangeSearch}
+          onClick={handleSearch}
         />
       </div>
 

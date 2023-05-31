@@ -3,9 +3,10 @@ import React, { createContext, useContext, useMemo, useState } from 'react'
 import { baseDigitalFormData } from '@/data/bases/baseDigitalForm'
 
 interface BaseDigitalFormContextData {
-  formattedBaseDigitalFormData: any
+  currentBaseDigitalFormData: any
   searchedValue: string
   handleChangeSearch: (searchValue: string) => void
+  handleSearch: () => void
 }
 
 interface BaseDigitalFormProviderProps {
@@ -26,33 +27,41 @@ const BaseDigitalFormProvider = ({
   // const [dense, setDense] = useState(false)
   // const [rowsPerPage, setRowsPerPage] = useState(5)
 
+  const [currentBaseDigitalFormData, setCurrentBaseDigitalFormData] =
+    useState(baseDigitalFormData)
+
   const [searchedValue, setSearchedValue] = useState('')
 
   const handleChangeSearch = (searchValue: string) => {
     setSearchedValue(searchValue)
   }
 
-  const formattedBaseDigitalFormData = useMemo(() => {
-    if (searchedValue !== '') {
-      return baseDigitalFormData.filter((item) => {
-        return Object.values(item).some((value) => {
-          if (typeof value === 'string') {
-            return value.toLowerCase().includes(searchedValue.toLowerCase())
-          }
-          return false
-        })
+  const filteredBaseDigitalFormData = useMemo(() => {
+    return baseDigitalFormData.filter((item) => {
+      return Object.values(item).some((value) => {
+        if (typeof value === 'string') {
+          return value.toLowerCase().includes(searchedValue.toLowerCase())
+        }
+        return []
       })
-    }
-
-    return baseDigitalFormData
+    })
   }, [searchedValue])
+
+  const handleSearch = () => {
+    if (searchedValue !== '') {
+      setCurrentBaseDigitalFormData(filteredBaseDigitalFormData)
+    } else {
+      setCurrentBaseDigitalFormData(baseDigitalFormData)
+    }
+  }
 
   return (
     <BaseDigitalFormContext.Provider
       value={{
-        formattedBaseDigitalFormData,
+        currentBaseDigitalFormData,
         searchedValue,
-        handleChangeSearch
+        handleChangeSearch,
+        handleSearch
       }}
     >
       {children}

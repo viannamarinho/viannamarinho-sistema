@@ -13,6 +13,7 @@ interface IputProps {
   error?: boolean
   helperText?: string
   onChange: (e: any) => void
+  onClick: () => void
 }
 
 const CustomTextField = styled(TextField)({
@@ -32,7 +33,8 @@ export function InputSearch(props: IputProps) {
     error = false,
     helperText,
     value,
-    onChange
+    onChange,
+    onClick
   } = props
 
   return (
@@ -54,6 +56,7 @@ export function InputSearch(props: IputProps) {
               variant="outlined"
               size="small"
               sx={{ padding: '7px', fontSize: '13px', lineHeight: '13px' }}
+              onClick={onClick}
             >
               Pesquisar
             </Button>

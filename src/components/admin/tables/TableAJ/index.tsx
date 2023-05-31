@@ -7,105 +7,547 @@ import { Table } from 'evergreen-ui'
 
 import { useBaseAJ } from '@/contexts/BaseAJContext'
 
+import { baseAJTableWidth } from '@/data/basesTableWidth'
+
 export function TableAJ() {
-  const { formattedBaseAJData } = useBaseAJ()
+  const { currentBaseAJData } = useBaseAJ()
 
   return (
     <div className={styles.table_listing_aj}>
       <Table height="100%" width="fit-content">
         <Table.Head height={60}>
-          <Table.TextHeaderCell>Nome do Credor</Table.TextHeaderCell>
-          <Table.TextHeaderCell>CPF ou CNPJ do Credor</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Classe de Credor</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Moeda</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Informe o Valor Pleiteado</Table.TextHeaderCell>
-          <Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.nome_credor}
+            flexBasis={baseAJTableWidth.nome_credor}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Nome do Credor
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.cpf_cnpj_credor}
+            flexBasis={baseAJTableWidth.cpf_cnpj_credor}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            CPF ou CNPJ do Credor
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.classe}
+            flexBasis={baseAJTableWidth.classe}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Classe de Credor
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.moeda}
+            flexBasis={baseAJTableWidth.moeda}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Moeda
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.valor_pleiteado}
+            flexBasis={baseAJTableWidth.valor_pleiteado}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Informe o Valor Pleiteado
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.hab_ou_div}
+            flexBasis={baseAJTableWidth.hab_ou_div}
+            flexShrink={0}
+            flexGrow={0}
+          >
             Habilitação ou Divergência?
           </Table.TextHeaderCell>
-          <Table.TextHeaderCell>A Origem do Meu Crédito é</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Tipo de Crédito</Table.TextHeaderCell>
-          <Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.origem_credito}
+            flexBasis={baseAJTableWidth.origem_credito}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            A Origem do Meu Crédito é
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.tp_credito}
+            flexBasis={baseAJTableWidth.tp_credito}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Tipo de Crédito
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.nr_processo_origem}
+            flexBasis={baseAJTableWidth.nr_processo_origem}
+            flexShrink={0}
+            flexGrow={0}
+          >
             Número do Processo de Origem
           </Table.TextHeaderCell>
-          <Table.TextHeaderCell>Vara</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Comarca</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Estado</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Fase do Processo</Table.TextHeaderCell>
-          <Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.vara}
+            flexBasis={baseAJTableWidth.vara}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Vara
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.comarca}
+            flexBasis={baseAJTableWidth.comarca}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Comarca
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.estado}
+            flexBasis={baseAJTableWidth.estado}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Estado
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.fases_processo}
+            flexBasis={baseAJTableWidth.fases_processo}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Fase do Processo
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.decisao_proferida}
+            flexBasis={baseAJTableWidth.decisao_proferida}
+            flexShrink={0}
+            flexGrow={0}
+          >
             A decisão proferida na impugnação ao cumprimento de sentença
             transitou em julgado?
           </Table.TextHeaderCell>
-          <Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.cpf_cnpj_credores_retif_oi}
+            flexBasis={baseAJTableWidth.cpf_cnpj_credores_retif_oi}
+            flexShrink={0}
+            flexGrow={0}
+          >
             CPF/CNPJ - Lista de Credores Retificada Oi
           </Table.TextHeaderCell>
-          <Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.classe_credores_retif_oi}
+            flexBasis={baseAJTableWidth.classe_credores_retif_oi}
+            flexShrink={0}
+            flexGrow={0}
+          >
             Classe - Lista de Credores Retificada Oi
           </Table.TextHeaderCell>
-          <Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.vlr_cdt_credores_retif_oi}
+            flexBasis={baseAJTableWidth.vlr_cdt_credores_retif_oi}
+            flexShrink={0}
+            flexGrow={0}
+          >
             Valor do crédito - Lista de Credores Retificada Oi
           </Table.TextHeaderCell>
-          <Table.TextHeaderCell>Origem do Crédito Listado</Table.TextHeaderCell>
-          <Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.origem_credito_listado}
+            flexBasis={baseAJTableWidth.origem_credito_listado}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Origem do Crédito Listado
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.msm_proc_lt_cred_retif_oi}
+            flexBasis={baseAJTableWidth.msm_proc_lt_cred_retif_oi}
+            flexShrink={0}
+            flexGrow={0}
+          >
             É o mesmo processo da Lista de Credores Retificada Oi?
           </Table.TextHeaderCell>
-          <Table.TextHeaderCell>Resposta Oi</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Resposta Oi Valor</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Resposta Oi Classe</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Observação Oi</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Matéria</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Estratégico</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Parecer Preliminar Wald</Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.resposta_oi}
+            flexBasis={baseAJTableWidth.resposta_oi}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Resposta Oi
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.resposta_oi_valor}
+            flexBasis={baseAJTableWidth.resposta_oi_valor}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Resposta Oi Valor
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.resposta_oi_classe}
+            flexBasis={baseAJTableWidth.resposta_oi_classe}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Resposta Oi Classe
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.obs_oi}
+            flexBasis={baseAJTableWidth.obs_oi}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Observação Oi
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.materia}
+            flexBasis={baseAJTableWidth.materia}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Matéria
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.estrategico}
+            flexBasis={baseAJTableWidth.estrategico}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Estratégico
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.parecer_prelim_wald}
+            flexBasis={baseAJTableWidth.parecer_prelim_wald}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Parecer Preliminar Wald
+          </Table.TextHeaderCell>
           {/* <Table.TextHeaderCell>Tem certidão de crédito</Table.TextHeaderCell>
           <Table.TextHeaderCell>Data certidão de crédito</Table.TextHeaderCell> */}
-          <Table.TextHeaderCell>Observação</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Apto para Cálculo?</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Conclusão K2</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Orientação para Edital AJ</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Valor para Edital AJ</Table.TextHeaderCell>
-          <Table.TextHeaderCell>Classe para Edital AJ</Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.observacao}
+            flexBasis={baseAJTableWidth.observacao}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Observação
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.apto_calculo}
+            flexBasis={baseAJTableWidth.apto_calculo}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Apto para Cálculo?
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.conclusao_k2}
+            flexBasis={baseAJTableWidth.conclusao_k2}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Conclusão K2
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.orientacao_edital_aj}
+            flexBasis={baseAJTableWidth.orientacao_edital_aj}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Orientação para Edital AJ
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.valor_edital_aj}
+            flexBasis={baseAJTableWidth.valor_edital_aj}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Valor para Edital AJ
+          </Table.TextHeaderCell>
+          <Table.TextHeaderCell
+            width={baseAJTableWidth.classe_edital_aj}
+            flexBasis={baseAJTableWidth.classe_edital_aj}
+            flexShrink={0}
+            flexGrow={0}
+          >
+            Classe para Edital AJ
+          </Table.TextHeaderCell>
         </Table.Head>
-        <Table.Body height={`calc(100% - 60px)`} overflow="auto">
-          {formattedBaseAJData?.map((data: any) => (
+        <Table.Body
+          width="fit-content"
+          height={`calc(100% - 60px)`}
+          overflowY="auto"
+          overflowX="hidden"
+        >
+          {currentBaseAJData?.map((data: any) => (
             <Table.Row
               key={data.id}
               height={38}
               isSelectable
+              display="flex"
               // onSelect={() => alert(data.name)}
             >
-              <Table.TextCell>{data.nome_credor}</Table.TextCell>
-              <Table.TextCell>{data.cpf_cnpj_credor}</Table.TextCell>
-              <Table.TextCell>{data.classe}</Table.TextCell>
-              <Table.TextCell>{data.moeda}</Table.TextCell>
-              <Table.TextCell>{data.valor_pleiteado}</Table.TextCell>
-              <Table.TextCell>{data.hab_ou_div}</Table.TextCell>
-              <Table.TextCell>{data.origem_credito}</Table.TextCell>
-              <Table.TextCell>{data.tp_credito}</Table.TextCell>
-              <Table.TextCell>{data.nr_processo_origem}</Table.TextCell>
-              <Table.TextCell>{data.vara}</Table.TextCell>
-              <Table.TextCell>{data.comarca}</Table.TextCell>
-              <Table.TextCell>{data.estado}</Table.TextCell>
-              <Table.TextCell>{data.fases_processo}</Table.TextCell>
-              <Table.TextCell>{data.decisao_proferida}</Table.TextCell>
-              <Table.TextCell>{data.cpf_cnpj_credores_retif_oi}</Table.TextCell>
-              <Table.TextCell>{data.classe_credores_retif_oi}</Table.TextCell>
-              <Table.TextCell>{data.vlr_cdt_credores_retif_oi}</Table.TextCell>
-              <Table.TextCell>{data.origem_credito_listado}</Table.TextCell>
-              <Table.TextCell>{data.msm_proc_lt_cred_retif_oi}</Table.TextCell>
-              <Table.TextCell>{data.resposta_oi}</Table.TextCell>
-              <Table.TextCell>{data.resposta_oi_valor}</Table.TextCell>
-              <Table.TextCell>{data.resposta_oi_classe}</Table.TextCell>
-              <Table.TextCell>{data.obs_oi}</Table.TextCell>
-              <Table.TextCell>{data.materia}</Table.TextCell>
-              <Table.TextCell>{data.estrategico}</Table.TextCell>
-              <Table.TextCell>{data.parecer_prelim_wald}</Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.nome_credor}
+                flexBasis={baseAJTableWidth.nome_credor}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.nome_credor}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.cpf_cnpj_credor}
+                flexBasis={baseAJTableWidth.cpf_cnpj_credor}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.cpf_cnpj_credor}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.classe}
+                flexBasis={baseAJTableWidth.classe}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.classe}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.moeda}
+                flexBasis={baseAJTableWidth.moeda}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.moeda}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.valor_pleiteado}
+                flexBasis={baseAJTableWidth.valor_pleiteado}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.valor_pleiteado}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.hab_ou_div}
+                flexBasis={baseAJTableWidth.hab_ou_div}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.hab_ou_div}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.origem_credito}
+                flexBasis={baseAJTableWidth.origem_credito}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.origem_credito}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.tp_credito}
+                flexBasis={baseAJTableWidth.tp_credito}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.tp_credito}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.nr_processo_origem}
+                flexBasis={baseAJTableWidth.nr_processo_origem}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.nr_processo_origem}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.vara}
+                flexBasis={baseAJTableWidth.vara}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.vara}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.comarca}
+                flexBasis={baseAJTableWidth.comarca}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.comarca}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.estado}
+                flexBasis={baseAJTableWidth.estado}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.estado}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.fases_processo}
+                flexBasis={baseAJTableWidth.fases_processo}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.fases_processo}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.decisao_proferida}
+                flexBasis={baseAJTableWidth.decisao_proferida}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.decisao_proferida}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.cpf_cnpj_credores_retif_oi}
+                flexBasis={baseAJTableWidth.cpf_cnpj_credores_retif_oi}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.cpf_cnpj_credores_retif_oi}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.classe_credores_retif_oi}
+                flexBasis={baseAJTableWidth.classe_credores_retif_oi}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.classe_credores_retif_oi}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.vlr_cdt_credores_retif_oi}
+                flexBasis={baseAJTableWidth.vlr_cdt_credores_retif_oi}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.vlr_cdt_credores_retif_oi}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.origem_credito_listado}
+                flexBasis={baseAJTableWidth.origem_credito_listado}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.origem_credito_listado}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.msm_proc_lt_cred_retif_oi}
+                flexBasis={baseAJTableWidth.msm_proc_lt_cred_retif_oi}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.msm_proc_lt_cred_retif_oi}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.resposta_oi}
+                flexBasis={baseAJTableWidth.resposta_oi}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.resposta_oi}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.resposta_oi_valor}
+                flexBasis={baseAJTableWidth.resposta_oi_valor}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.resposta_oi_valor}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.resposta_oi_classe}
+                flexBasis={baseAJTableWidth.resposta_oi_classe}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.resposta_oi_classe}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.obs_oi}
+                flexBasis={baseAJTableWidth.obs_oi}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.obs_oi}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.materia}
+                flexBasis={baseAJTableWidth.materia}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.materia}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.estrategico}
+                flexBasis={baseAJTableWidth.estrategico}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.estrategico}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.parecer_prelim_wald}
+                flexBasis={baseAJTableWidth.parecer_prelim_wald}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.parecer_prelim_wald}
+              </Table.TextCell>
               {/* <Table.TextCell>{data.name}</Table.TextCell>
               <Table.TextCell>{data.name}</Table.TextCell> */}
-              <Table.TextCell>{data.observacao}</Table.TextCell>
-              <Table.TextCell>{data.apto_calculo}</Table.TextCell>
-              <Table.TextCell>{data.conclusao_k2}</Table.TextCell>
-              <Table.TextCell>{data.orientacao_edital_aj}</Table.TextCell>
-              <Table.TextCell>{data.valor_edital_aj}</Table.TextCell>
-              <Table.TextCell>{data.classe_edital_aj}</Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.observacao}
+                flexBasis={baseAJTableWidth.observacao}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.observacao}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.apto_calculo}
+                flexBasis={baseAJTableWidth.apto_calculo}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.apto_calculo}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.conclusao_k2}
+                flexBasis={baseAJTableWidth.conclusao_k2}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.conclusao_k2}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.orientacao_edital_aj}
+                flexBasis={baseAJTableWidth.orientacao_edital_aj}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.orientacao_edital_aj}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.valor_edital_aj}
+                flexBasis={baseAJTableWidth.valor_edital_aj}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.valor_edital_aj}
+              </Table.TextCell>
+              <Table.TextCell
+                width={baseAJTableWidth.classe_edital_aj}
+                flexBasis={baseAJTableWidth.classe_edital_aj}
+                flexShrink={0}
+                flexGrow={0}
+              >
+                {data.classe_edital_aj}
+              </Table.TextCell>
             </Table.Row>
           ))}
         </Table.Body>

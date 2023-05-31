@@ -3,9 +3,10 @@ import React, { createContext, useContext, useMemo, useState } from 'react'
 import { baseVMAData } from '@/data/bases/baseVMA'
 
 interface BaseVMAContextData {
-  formattedBaseVMAData: any
+  currentBaseVMAData: any
   searchedValue: string
   handleChangeSearch: (searchValue: string) => void
+  handleSearch: () => void
 }
 
 interface BaseVMAProviderProps {
@@ -24,33 +25,40 @@ const BaseVMAProvider = ({ children }: BaseVMAProviderProps) => {
   // const [dense, setDense] = useState(false)
   // const [rowsPerPage, setRowsPerPage] = useState(5)
 
+  const [currentBaseVMAData, setCurrentBaseVMAData] = useState(baseVMAData)
+
   const [searchedValue, setSearchedValue] = useState('')
 
   const handleChangeSearch = (searchValue: string) => {
     setSearchedValue(searchValue)
   }
 
-  const formattedBaseVMAData = useMemo(() => {
-    if (searchedValue !== '') {
-      return baseVMAData.filter((item) => {
-        return Object.values(item).some((value) => {
-          if (typeof value === 'string') {
-            return value.toLowerCase().includes(searchedValue.toLowerCase())
-          }
-          return false
-        })
+  const filteredBaseVMAData = useMemo(() => {
+    return baseVMAData.filter((item) => {
+      return Object.values(item).some((value) => {
+        if (typeof value === 'string') {
+          return value.toLowerCase().includes(searchedValue.toLowerCase())
+        }
+        return []
       })
-    }
-
-    return baseVMAData
+    })
   }, [searchedValue])
+
+  const handleSearch = () => {
+    if (searchedValue !== '') {
+      setCurrentBaseVMAData(filteredBaseVMAData)
+    } else {
+      setCurrentBaseVMAData(baseVMAData)
+    }
+  }
 
   return (
     <BaseVMAContext.Provider
       value={{
-        formattedBaseVMAData,
+        currentBaseVMAData,
         searchedValue,
-        handleChangeSearch
+        handleChangeSearch,
+        handleSearch
       }}
     >
       {children}

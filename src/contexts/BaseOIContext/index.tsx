@@ -3,9 +3,10 @@ import React, { createContext, useContext, useMemo, useState } from 'react'
 import { baseOIData } from '@/data/bases/baseOI'
 
 interface BaseOIContextData {
-  formattedBaseOIData: any
+  currentBaseOIData: any
   searchedValue: string
   handleChangeSearch: (searchValue: string) => void
+  handleSearch: () => void
 }
 
 interface BaseOIProviderProps {
@@ -24,33 +25,40 @@ const BaseOIProvider = ({ children }: BaseOIProviderProps) => {
   // const [dense, setDense] = useState(false)
   // const [rowsPerPage, setRowsPerPage] = useState(5)
 
+  const [currentBaseOIData, setCurrentBaseOIData] = useState(baseOIData)
+
   const [searchedValue, setSearchedValue] = useState('')
 
   const handleChangeSearch = (searchValue: string) => {
     setSearchedValue(searchValue)
   }
 
-  const formattedBaseOIData = useMemo(() => {
-    if (searchedValue !== '') {
-      return baseOIData.filter((item) => {
-        return Object.values(item).some((value) => {
-          if (typeof value === 'string') {
-            return value.toLowerCase().includes(searchedValue.toLowerCase())
-          }
-          return false
-        })
+  const filteredBaseOIData = useMemo(() => {
+    return baseOIData.filter((item) => {
+      return Object.values(item).some((value) => {
+        if (typeof value === 'string') {
+          return value.toLowerCase().includes(searchedValue.toLowerCase())
+        }
+        return []
       })
-    }
-
-    return baseOIData
+    })
   }, [searchedValue])
+
+  const handleSearch = () => {
+    if (searchedValue !== '') {
+      setCurrentBaseOIData(filteredBaseOIData)
+    } else {
+      setCurrentBaseOIData(baseOIData)
+    }
+  }
 
   return (
     <BaseOIContext.Provider
       value={{
-        formattedBaseOIData,
+        currentBaseOIData,
         searchedValue,
-        handleChangeSearch
+        handleChangeSearch,
+        handleSearch
       }}
     >
       {children}

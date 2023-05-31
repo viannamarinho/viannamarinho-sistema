@@ -12,7 +12,8 @@ import { ButtonIcon } from '@/components/inputs/ButtonIcon'
 import { useBaseDigitalForm } from '@/contexts/BaseDigitalFormContext'
 
 export default function BaseDigitalFormView() {
-  const { searchedValue, handleChangeSearch } = useBaseDigitalForm()
+  const { searchedValue, handleChangeSearch, handleSearch } =
+    useBaseDigitalForm()
 
   return (
     <div className={styles.admin_view__digital_form}>
@@ -21,7 +22,8 @@ export default function BaseDigitalFormView() {
         viewHeader={
           <BaseDigitalFormViewHeader
             searchedValue={searchedValue}
-            handleSearch={handleChangeSearch}
+            handleChangeSearch={handleChangeSearch}
+            handleSearch={handleSearch}
           />
         }
       />
@@ -31,11 +33,13 @@ export default function BaseDigitalFormView() {
 
 interface IBaseDigitalFormViewHeaderProps {
   searchedValue: string
-  handleSearch: (searchValue: string) => void
+  handleChangeSearch: (searchValue: string) => void
+  handleSearch: () => void
 }
 
 function BaseDigitalFormViewHeader({
   searchedValue,
+  handleChangeSearch,
   handleSearch
 }: IBaseDigitalFormViewHeaderProps) {
   return (
@@ -44,7 +48,8 @@ function BaseDigitalFormViewHeader({
         <InputSearch
           placeholder="Pesquisar em Base DigitalForm"
           value={searchedValue}
-          onChange={handleSearch}
+          onChange={handleChangeSearch}
+          onClick={handleSearch}
         />
       </div>
 

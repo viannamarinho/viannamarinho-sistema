@@ -22,7 +22,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import { useBaseVMA } from '@/contexts/BaseVMAContext'
 
 export default function BaseVMAView() {
-  const { searchedValue, handleChangeSearch } = useBaseVMA()
+  const { searchedValue, handleChangeSearch, handleSearch } = useBaseVMA()
 
   const [isActiveNewUserModal, setIsActiveNewUserModal] = useState(false)
 
@@ -33,7 +33,8 @@ export default function BaseVMAView() {
         viewHeader={
           <BaseVMAViewHeader
             searchedValue={searchedValue}
-            handleSearch={handleChangeSearch}
+            handleChangeSearch={handleChangeSearch}
+            handleSearch={handleSearch}
             handleOpenCreateModal={() => setIsActiveNewUserModal(true)}
           />
         }
@@ -48,12 +49,14 @@ export default function BaseVMAView() {
 
 interface IBaseVMAViewHeaderProps {
   searchedValue: string
-  handleSearch: (searchValue: string) => void
+  handleChangeSearch: (searchValue: string) => void
+  handleSearch: () => void
   handleOpenCreateModal: () => void
 }
 
 function BaseVMAViewHeader({
   searchedValue,
+  handleChangeSearch,
   handleSearch,
   handleOpenCreateModal
 }: IBaseVMAViewHeaderProps) {
@@ -63,7 +66,8 @@ function BaseVMAViewHeader({
         <InputSearch
           placeholder="Pesquisar em Base VMA"
           value={searchedValue}
-          onChange={handleSearch}
+          onChange={handleChangeSearch}
+          onClick={handleSearch}
         />
       </div>
 

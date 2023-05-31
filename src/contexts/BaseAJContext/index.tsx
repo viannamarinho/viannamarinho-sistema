@@ -3,9 +3,10 @@ import React, { createContext, useContext, useMemo, useState } from 'react'
 import { baseAJData } from '@/data/bases/baseAJ'
 
 interface BaseAJContextData {
-  formattedBaseAJData: any
+  currentBaseAJData: any
   searchedValue: string
   handleChangeSearch: (searchValue: string) => void
+  handleSearch: () => void
 }
 
 interface BaseAJProviderProps {
@@ -24,33 +25,40 @@ const BaseAJProvider = ({ children }: BaseAJProviderProps) => {
   // const [dense, setDense] = useState(false)
   // const [rowsPerPage, setRowsPerPage] = useState(5)
 
+  const [currentBaseAJData, setCurrentBaseAJData] = useState(baseAJData)
+
   const [searchedValue, setSearchedValue] = useState('')
 
   const handleChangeSearch = (searchValue: string) => {
     setSearchedValue(searchValue)
   }
 
-  const formattedBaseAJData = useMemo(() => {
-    if (searchedValue !== '') {
-      return baseAJData.filter((item) => {
-        return Object.values(item).some((value) => {
-          if (typeof value === 'string') {
-            return value.toLowerCase().includes(searchedValue.toLowerCase())
-          }
-          return false
-        })
+  const filteredBaseAJData = useMemo(() => {
+    return baseAJData.filter((item) => {
+      return Object.values(item).some((value) => {
+        if (typeof value === 'string') {
+          return value.toLowerCase().includes(searchedValue.toLowerCase())
+        }
+        return []
       })
-    }
-
-    return baseAJData
+    })
   }, [searchedValue])
+
+  const handleSearch = () => {
+    if (searchedValue !== '') {
+      setCurrentBaseAJData(filteredBaseAJData)
+    } else {
+      setCurrentBaseAJData(baseAJData)
+    }
+  }
 
   return (
     <BaseAJContext.Provider
       value={{
-        formattedBaseAJData,
+        currentBaseAJData,
         searchedValue,
-        handleChangeSearch
+        handleChangeSearch,
+        handleSearch
       }}
     >
       {children}

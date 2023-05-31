@@ -12,7 +12,7 @@ import { ButtonIcon } from '@/components/inputs/ButtonIcon'
 import { useBaseOI } from '@/contexts/BaseOIContext'
 
 export default function BaseOIView() {
-  const { searchedValue, handleChangeSearch } = useBaseOI()
+  const { searchedValue, handleChangeSearch, handleSearch } = useBaseOI()
 
   return (
     <div className={styles.admin_view__base_oi}>
@@ -21,7 +21,8 @@ export default function BaseOIView() {
         viewHeader={
           <BaseOIViewHeader
             searchedValue={searchedValue}
-            handleSearch={handleChangeSearch}
+            handleChangeSearch={handleChangeSearch}
+            handleSearch={handleSearch}
           />
         }
       />
@@ -31,11 +32,13 @@ export default function BaseOIView() {
 
 interface IBaseOIViewHeaderProps {
   searchedValue: string
-  handleSearch: (searchValue: string) => void
+  handleChangeSearch: (searchValue: string) => void
+  handleSearch: () => void
 }
 
 function BaseOIViewHeader({
   searchedValue,
+  handleChangeSearch,
   handleSearch
 }: IBaseOIViewHeaderProps) {
   return (
@@ -44,7 +47,8 @@ function BaseOIViewHeader({
         <InputSearch
           placeholder="Pesquisar em Base OI"
           value={searchedValue}
-          onChange={handleSearch}
+          onChange={handleChangeSearch}
+          onClick={handleSearch}
         />
       </div>
 
