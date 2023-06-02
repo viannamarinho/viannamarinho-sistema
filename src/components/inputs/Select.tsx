@@ -1,7 +1,8 @@
 'use client'
 
-import FormControl from '@mui/material/FormControl'
+import { useMemo } from 'react'
 
+import FormControl from '@mui/material/FormControl'
 import MUISelect from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
@@ -35,7 +36,7 @@ export function Select(props: SelectProps) {
       <MUISelect
         placeholder={placeholder}
         labelId={labelId}
-        value={selectedValue?.valueId}
+        value={selectedValue}
         size="small"
         onChange={(e) => onChange(e.target.value)}
       >

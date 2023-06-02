@@ -39,14 +39,13 @@ const initialMessages: Message[] = [
   {
     content: 'Olá! Bem-vindo ao chat.',
     isUser: false,
-    isFinalQuestion: false,
-    select: []
+    isFinalQuestion: false
   }
 ]
 
 const MethodAnalysisProvider = ({ children }: MethodAnalysisProviderProps) => {
   const [messages, setMessages] = useState<Message[]>([])
-  const [currentQuestionId, setCurrentQuestionId] = useState('0')
+  const [currentQuestionId, setCurrentQuestionId] = useState('')
   const [chatEnded, setChatEnded] = useState(false)
 
   const [isMessageMenuActive, setIsMessageMenuActive] = useState(false)
@@ -129,6 +128,10 @@ const MethodAnalysisProvider = ({ children }: MethodAnalysisProviderProps) => {
 
   const getBaseAJDataToForm = useMemo(() => {
     return baseAJData[0]
+  }, [])
+
+  useEffect(() => {
+    restartChat()
   }, [])
 
   return (

@@ -114,6 +114,7 @@ function MethodAnalysisChatbot({
             })}
           </div>
         </div>
+        <div className={styles.background}></div>
         <div className={styles.method_analysis__chat__controls}>
           <span>
             {!chatEnded && (
@@ -208,20 +209,20 @@ function MethodAnalysisForm({
   const [folderNameValue, setFolderNameValue] = useState('')
 
   const [analysisOfMeritValue, setAnalysisOfMeritValue] = useState(
-    formattedAnalysisOfMerit[0]
+    formattedAnalysisOfMerit[0].valueId
   )
   const [incidentNumberValue, setIncidentNumberValue] = useState('')
-  const [areaValue, setAreaValue] = useState(formattedArea[0])
+  const [areaValue, setAreaValue] = useState(formattedArea[0].valueId)
   const [questionIdValue, setQuestionIdValue] = useState('')
-  const [classValue, setClassValue] = useState(formattedClass[0])
+  const [classValue, setClassValue] = useState(formattedClass[0].valueId)
   const [amountValue, setAmountValue] = useState('')
-  const [divHabValue, setDivHabValue] = useState(formattedDivHab[0])
+  const [divHabValue, setDivHabValue] = useState(formattedDivHab[0].valueId)
 
   const handleChangeFolderName = (value: string) => {
     setFolderNameValue(value)
   }
 
-  const handleChangeAnalysisOfMerit = (value: any) => {
+  const handleChangeAnalysisOfMerit = (value: string) => {
     setAnalysisOfMeritValue(value)
   }
 
@@ -229,7 +230,7 @@ function MethodAnalysisForm({
     setIncidentNumberValue(value)
   }
 
-  const handleChangeArea = (value: any) => {
+  const handleChangeArea = (value: string) => {
     setAreaValue(value)
   }
 
@@ -237,7 +238,7 @@ function MethodAnalysisForm({
     setQuestionIdValue(value)
   }
 
-  const handleChangeClass = (value: any) => {
+  const handleChangeClass = (value: string) => {
     setClassValue(value)
   }
 
@@ -245,7 +246,7 @@ function MethodAnalysisForm({
     setAmountValue(value)
   }
 
-  const handleChangeDivHab = (value: any) => {
+  const handleChangeDivHab = (value: string) => {
     setDivHabValue(value)
   }
 
@@ -282,7 +283,7 @@ function MethodAnalysisForm({
       //   finalQuestionObject.id
       // )
 
-      setAnalysisOfMeritValue(filteredAnalysisOfMerit)
+      setAnalysisOfMeritValue(filteredAnalysisOfMerit.valueId)
       // setAreaValue(filteredArea)
       // setClassValue(filteredClass)
       // setDivHabValue(filteredDivHab)
