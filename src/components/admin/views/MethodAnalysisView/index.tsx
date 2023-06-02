@@ -252,6 +252,12 @@ function MethodAnalysisForm({
 
   // =================================
 
+  const formattedFolderValue = useMemo(() => {
+    return !isFinalQuestion
+      ? ''
+      : `${getBaseAJDataToForm.classe}_${getBaseAJDataToForm.cpf_cnpj_credor}_${getBaseAJDataToForm.nome_credor}_${getBaseAJDataToForm.protocolo}`
+  }, [getBaseAJDataToForm, isFinalQuestion])
+
   const filtrarArrayPorValueId = (array: any, valueId: string) => {
     const results = array.filter((item: any) => item.valueId === valueId)
     return results[0]
@@ -283,6 +289,8 @@ function MethodAnalysisForm({
       //   finalQuestionObject.id
       // )
 
+      handleChangeFolderName(formattedFolderValue)
+
       setAnalysisOfMeritValue(filteredAnalysisOfMerit.valueId)
       // setAreaValue(filteredArea)
       // setClassValue(filteredClass)
@@ -295,7 +303,8 @@ function MethodAnalysisForm({
     formattedAnalysisOfMerit,
     formattedArea,
     formattedClass,
-    formattedDivHab
+    formattedDivHab,
+    formattedFolderValue
   ])
 
   // =================================
