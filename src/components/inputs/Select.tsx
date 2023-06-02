@@ -9,20 +9,23 @@ import MenuItem from '@mui/material/MenuItem'
 interface SelectOptionsProps {
   valueId: string
   valueLabel: string
+  valueObject?: any
 }
 
 interface SelectProps {
   placeholder: string
   label: string
   labelId: string
-  options?: SelectOptionsProps[]
-  selectedValue?: SelectOptionsProps | object
+  options: SelectOptionsProps[]
+  selectedValue: SelectOptionsProps | any
   onChange: (e: any) => void
 }
 
 export function Select(props: SelectProps) {
   const { label, placeholder, labelId, options, selectedValue, onChange } =
     props
+
+  // console.log('---------------------', selectedValue)
 
   return (
     <FormControl fullWidth>
@@ -32,7 +35,7 @@ export function Select(props: SelectProps) {
       <MUISelect
         placeholder={placeholder}
         labelId={labelId}
-        value={selectedValue}
+        value={selectedValue?.valueId}
         size="small"
         onChange={(e) => onChange(e.target.value)}
       >

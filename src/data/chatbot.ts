@@ -1,6 +1,6 @@
-const answersMap = [
+export const answersMap = [
   {
-    id: '1',
+    id: 'answer-1',
     analise: 'CONCORDÂNCIA TOTAL',
     texto_analise: 'Concordo Totalmente',
     classe: 'Classe III',
@@ -14,7 +14,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: sem necessidade.'
   },
   {
-    id: '2',
+    id: 'answer-2',
     analise:
       'DISCORDÂNCIA – CRÉDITO JÁ LISTADO (nos mesmos valores requeridos)',
     texto_analise: 'Discordo Totalmente',
@@ -31,7 +31,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: sem necessidade.'
   },
   {
-    id: '3',
+    id: 'answer-3',
     analise: 'DISCORDÂNCIA – ILIQUIDEZ',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -47,7 +47,7 @@ const answersMap = [
       'Documentação a ser anexada: versão em PDF da consulta eletrônica dos autos em seu respectivo Tribunal; Decisão determinando o prosseguimento do feito para apuração do valor/Última manifestação da OI, discutindo o valor, ainda não homologado.'
   },
   {
-    id: '4',
+    id: 'answer-4',
     analise: 'DISCORDÂNCIA – INEXISTÊNCIA DE CRÉDITO',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -63,7 +63,7 @@ const answersMap = [
       'Documentação a ser anexada: sentença/acórdão da ação originária.'
   },
   {
-    id: '5',
+    id: 'answer-5',
     analise: 'DISCORDÂNCIA – CRÉDITO QUITADO NOS TERMOS DO PRJ (Genérico)',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -79,7 +79,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: comprovantes de pagamento.'
   },
   {
-    id: '6',
+    id: 'answer-6',
     analise: 'DISCORDÂNCIA – CRÉDITO QUITADO NOS TERMOS DO PRJ (PAC)',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -95,7 +95,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: comprovantes de pagamento.'
   },
   {
-    id: '7',
+    id: 'answer-7',
     analise: 'DISCORDÂNCIA – CRÉDITO QUITADO NOS TERMOS DO PRJ (ADITAMENTO)',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -111,7 +111,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: comprovantes de pagamento.'
   },
   {
-    id: '8',
+    id: 'answer-8',
     analise: 'DISCORDÂNCIA – DOCUMENTAÇÃO INSUFICIENTE',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -127,7 +127,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: sem necessidade.'
   },
   {
-    id: '9',
+    id: 'answer-9',
     analise: 'DISCORDÂNCIA – DUPLICIDADE/LITISPENDÊNCIA (INTRALINKS)',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -142,7 +142,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: sem necessidade.'
   },
   {
-    id: '10',
+    id: 'answer-10',
     analise:
       'DISCORDÂNCIA – DUPLICIDADE/LITISPENDÊNCIA (FORMULÁRIO DIGITAL - Concluído)',
     texto_analise: 'Discordo Totalmente',
@@ -160,7 +160,7 @@ const answersMap = [
       'Documentação a ser anexada: “print”, em PDF, da análise de mérito já finalizada no Formulário Digital.\r\nOBS: casos de novas análises de concordância no FD devem ser enviados ao AJ para inclusão na relação de credores.'
   },
   {
-    id: '11',
+    id: 'answer-11',
     analise:
       'DISCORDÂNCIA – DUPLICIDADE/LITISPENDÊNCIA (FORMULÁRIO DIGITAL - pendente)',
     texto_analise: 'Discordo Totalmente',
@@ -178,7 +178,7 @@ const answersMap = [
       'Documentação a ser anexada: “print”, em PDF, da habilitação a ser analisada no Formulário Digital.\r\nOBS: casos de novas análises de concordância no FD devem ser enviados ao AJ para inclusão na relação de credores.'
   },
   {
-    id: '12',
+    id: 'answer-12',
     analise:
       'DISCORDÂNCIA – DUPLICIDADE/LITISPENDÊNCIA (JUDICIAL - finalizada)',
     texto_analise: 'Discordo Totalmente',
@@ -196,7 +196,7 @@ const answersMap = [
       'Documentação a ser anexada: inicial; tela de movimentação processual do TJRJ; sentença; certidão de trânsito em julgado.'
   },
   {
-    id: '13',
+    id: 'answer-13',
     analise: 'DISCORDÂNCIA – DUPLICIDADE/LITISPENDÊNCIA (JUDICIAL - pendente)',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -213,7 +213,7 @@ const answersMap = [
       'Documentação a ser anexada: Inicial; Tela de movimentação processual do TJRJ; última peça processual.'
   },
   {
-    id: '14',
+    id: 'answer-14',
     analise: 'DISCORDÂNCIA – PAGAMENTO INTEGRAL (SEM RELAÇÃO COM O PLANO)',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -228,7 +228,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: comprovantes de pagamento.'
   },
   {
-    id: '15',
+    id: 'answer-15',
     analise: 'DISCORDÂNCIA – ILEGITIMIDADE ATIVA',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -244,7 +244,7 @@ const answersMap = [
       'Documentação a ser anexada: sentença/decisão do processo de origem.'
   },
   {
-    id: '16',
+    id: 'answer-16',
     analise: 'DISCORDÂNCIA – ILEGITIMIDADE PASSIVA',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -260,7 +260,7 @@ const answersMap = [
       'Documentação a ser anexada: sentença/decisão do processo de origem.'
   },
   {
-    id: '17',
+    id: 'answer-17',
     analise: 'DISCORDÂNCIA – HONORÁRIOS CONTRATUAIS',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -275,7 +275,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: sem necessidade.'
   },
   {
-    id: '18',
+    id: 'answer-18',
     analise: 'DISCORDÂNCIA – CRÉDITO EXTRACONCURSAL',
     texto_analise: 'Discordo Totalmente',
     classe: 'Classe III',
@@ -290,7 +290,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: Inicial da ação originária'
   },
   {
-    id: '19',
+    id: 'answer-19',
     analise: 'CONCORDÂNCIA PARCIAL – PARCELAS EXTRACONCURSAIS (ALUGUEL)',
     texto_analise: 'Concordo Parcialmente',
     classe: 'Classe III',
@@ -307,7 +307,7 @@ const answersMap = [
       'Documentação a ser anexada: Inicial da ação originária e contrato firmado.'
   },
   {
-    id: '20',
+    id: 'answer-20',
     analise: 'CONCORDÂNCIA PARCIAL – HONORÁRIOS CONTRATUAIS + SUCUMBENCIAIS',
     texto_analise: 'Concordo Parcialmente',
     classe: 'Classe III',
@@ -323,7 +323,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: cálculo do valor devido.'
   },
   {
-    id: '21',
+    id: 'answer-21',
     analise: 'CONCORDÂNCIA PARCIAL – DIVERGÂNCIA DE CLASSE (VALOR CORRETO)',
     texto_analise: 'Concordo Parcialmente',
     classe: 'Classe III',
@@ -339,7 +339,7 @@ const answersMap = [
     documentacao: 'Documentação a ser anexada: sentença; inicial.'
   },
   {
-    id: '22',
+    id: 'answer-22',
     analise:
       'CONCORDÂNCIA PARCIAL – VALOR ATUALIZADO INCORRETAMENTE (fato gerador antes da primeira RJ)',
     texto_analise: 'Concordo Parcialmente',
@@ -357,7 +357,7 @@ const answersMap = [
       'Documentação a ser anexada: sentença; cálculos; inicial/data da citação.'
   },
   {
-    id: '23',
+    id: 'answer-23',
     analise:
       'CONCORDÂNCIA PARCIAL – VALOR ATUALIZADO INCORRETAMENTE (fato gerador após a primeira RJ)',
     texto_analise: 'Concordo Parcialmente',
@@ -375,7 +375,7 @@ const answersMap = [
       'Documentação a ser anexada: inicial; sentença; cálculos; data da citação.'
   },
   {
-    id: '24',
+    id: 'answer-24',
     analise:
       'CONCORDÂNCIA PARCIAL – VALOR E CLASSE (Fato gerador antes da primeira)',
     texto_analise: 'Concordo Parcialmente',
@@ -393,7 +393,7 @@ const answersMap = [
       'Documentação a ser anexada: sentença; cálculos; inicial/data da citação.'
   },
   {
-    id: '25',
+    id: 'answer-25',
     analise:
       'CONCORDÂNCIA PARCIAL – VALOR E CLASSE (Fato gerador após a primeira)',
     texto_analise: 'Concordo Parcialmente',
@@ -411,7 +411,7 @@ const answersMap = [
       'Documentação a ser anexada: inicial; sentença; cálculos; data da citação.'
   },
   {
-    id: '26',
+    id: 'answer-26',
     analise: 'CONCORDÂNCIA PARCIAL – PAGAMENTO PARCIAL',
     texto_analise: 'Concordo Parcialmente',
     classe: 'Classe III',
@@ -439,14 +439,15 @@ export const mockQuestions = [
     id: '1',
     content: 'Este crédito já foi requerido pelo formulário A.J.?',
     options: [
-      { value: 'Não', nextQuestion: '2' },
-      { value: 'Sim', nextQuestion: '3' }
+      { value: 'Não', nextQuestion: '3' },
+      { value: 'Sim', nextQuestion: '2' }
     ],
     isFinalQuestion: false
   },
   {
     id: '2',
     content: answersMap[8].analise,
+    finalMessageObject: answersMap[8],
     isFinalQuestion: true
   },
   {
@@ -461,6 +462,7 @@ export const mockQuestions = [
   {
     id: '4',
     content: answersMap[10].analise,
+    finalMessageObject: answersMap[10],
     isFinalQuestion: true
   },
   {
@@ -475,6 +477,7 @@ export const mockQuestions = [
   {
     id: '6',
     content: answersMap[11].analise, //12
+    finalMessageObject: answersMap[11],
     isFinalQuestion: true
   },
   {
@@ -489,6 +492,7 @@ export const mockQuestions = [
   {
     id: '8',
     content: answersMap[1].analise,
+    finalMessageObject: answersMap[1],
     isFinalQuestion: true
   },
   {
@@ -504,6 +508,7 @@ export const mockQuestions = [
   {
     id: '10',
     content: answersMap[7].analise,
+    finalMessageObject: answersMap[7],
     isFinalQuestion: true
   },
   {
@@ -518,6 +523,7 @@ export const mockQuestions = [
   {
     id: '12',
     content: answersMap[3].analise,
+    finalMessageObject: answersMap[3],
     isFinalQuestion: true
   },
   {
@@ -532,6 +538,7 @@ export const mockQuestions = [
   {
     id: '14',
     content: answersMap[14].analise,
+    finalMessageObject: answersMap[14],
     isFinalQuestion: true
   },
   {
@@ -547,6 +554,7 @@ export const mockQuestions = [
   {
     id: '16',
     content: answersMap[15].analise,
+    finalMessageObject: answersMap[15],
     isFinalQuestion: true
   },
   {
@@ -561,6 +569,7 @@ export const mockQuestions = [
   {
     id: '18',
     content: answersMap[17].analise,
+    finalMessageObject: answersMap[17],
     isFinalQuestion: true
   },
   {
@@ -575,6 +584,7 @@ export const mockQuestions = [
   {
     id: '20',
     content: answersMap[2].analise,
+    finalMessageObject: answersMap[2],
     isFinalQuestion: true
   },
   {
@@ -590,6 +600,7 @@ export const mockQuestions = [
   {
     id: '22',
     content: answersMap[25].analise,
+    finalMessageObject: answersMap[25],
     isFinalQuestion: true
   },
   {
@@ -606,21 +617,25 @@ export const mockQuestions = [
   {
     id: '24',
     content: answersMap[5].analise,
+    finalMessageObject: answersMap[5],
     isFinalQuestion: true
   },
   {
     id: '25',
     content: answersMap[6].analise,
+    finalMessageObject: answersMap[6],
     isFinalQuestion: true
   },
   {
     id: '26',
     content: answersMap[4].analise,
+    finalMessageObject: answersMap[4],
     isFinalQuestion: true
   },
   {
     id: '27',
     content: answersMap[13].analise,
+    finalMessageObject: answersMap[13],
     isFinalQuestion: true
   },
   {
@@ -645,6 +660,7 @@ export const mockQuestions = [
   {
     id: '30',
     content: 'Abrir análise dupla sucumbenciais e contratuais',
+    finalMessageObject: {},
     isFinalQuestion: true
   },
   {
@@ -659,11 +675,90 @@ export const mockQuestions = [
   {
     id: '32',
     content: answersMap[16].analise,
+    finalMessageObject: answersMap[16],
     isFinalQuestion: true
   },
   {
     id: '33',
     content: 'Classe indicada pelo credor está correta?',
+    finalMessageObject: {},
     isFinalQuestion: true
   }
 ]
+
+export const selectsMap = {
+  selectArea: [
+    {
+      valueId: 'select-area-01',
+      valueLabel: 'Cível Consumidor'
+    },
+    {
+      valueId: 'select-area-02',
+      valueLabel: 'Estratégico'
+    },
+    {
+      valueId: 'select-area-03',
+      valueLabel: 'Fornecedores'
+    },
+    {
+      valueId: 'select-area-04',
+      valueLabel: 'Honorários Advocatícios'
+    },
+    {
+      valueId: 'select-area-05',
+      valueLabel: 'JEC'
+    },
+    {
+      valueId: 'select-area-06',
+      valueLabel: 'PEX'
+    },
+    {
+      valueId: 'select-area-07',
+      valueLabel: 'PROCON'
+    },
+    {
+      valueId: 'select-area-08',
+      valueLabel: 'Regulatório'
+    },
+    {
+      valueId: 'select-area-09',
+      valueLabel: 'Societário'
+    },
+    {
+      valueId: 'select-area-10',
+      valueLabel: 'Trabalhista'
+    },
+    {
+      valueId: 'select-area-11',
+      valueLabel: 'Não Identificado'
+    }
+  ],
+  selectClasses: [
+    {
+      valueId: 'select-classe-01',
+      valueLabel: 'Trabalhista – Classe I'
+    },
+    {
+      valueId: 'select-classe-02',
+      valueLabel: 'Garantia Real – Classe II'
+    },
+    {
+      valueId: 'select-classe-03',
+      valueLabel: 'Quirografário – Classe III'
+    },
+    {
+      valueId: 'select-classe-04',
+      valueLabel: 'Microempresa – Classe IV'
+    }
+  ],
+  selectDivHab: [
+    {
+      valueId: 'select-div-hab-01',
+      valueLabel: 'Habilitação'
+    },
+    {
+      valueId: 'select-div-hab-02',
+      valueLabel: 'Divergência'
+    }
+  ]
+}

@@ -14,6 +14,7 @@ type Message = {
   isUser: boolean
   isFinalQuestion: boolean
   select?: any
+  finalQuestionObject?: any
 }
 
 interface MethodAnalysisContextData {
@@ -92,12 +93,12 @@ const MethodAnalysisProvider = ({ children }: MethodAnalysisProviderProps) => {
             {
               content: nextQuestion.content.toString(),
               isUser: false,
-              isFinalQuestion: nextQuestion.isFinalQuestion,
-              select: nextQuestion.select
+              select: nextQuestion.select,
+              finalQuestionObject: nextQuestion.finalMessageObject,
+              isFinalQuestion: nextQuestion.isFinalQuestion
             }
           ])
 
-          console.log(nextQuestion.select)
           setCurrentQuestionId(nextQuestion.id)
 
           if (nextQuestion.select) {

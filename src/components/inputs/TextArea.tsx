@@ -1,7 +1,6 @@
 'use client'
 
 import TextField from '@mui/material/TextField'
-import { useMemo, useRef } from 'react'
 
 interface IputProps {
   label?: string
@@ -25,17 +24,8 @@ export function TextArea(props: IputProps) {
     onChange
   } = props
 
-  const textareaRef = useRef<HTMLInputElement>(null)
-
-  const currentValue = useMemo(() => {
-    if (textareaRef.current) return
-
-    return value.replace(/\\n/g, '\n')
-  }, [value])
-
   return (
     <TextField
-      inputRef={textareaRef}
       disabled={onlyRead}
       multiline
       rows={8}
@@ -46,7 +36,7 @@ export function TextArea(props: IputProps) {
       variant="outlined"
       size="small"
       fullWidth
-      value={currentValue}
+      value={value}
       onChange={(e: any) => onChange && onChange(e.target.value)}
       InputLabelProps={{ shrink: true }}
       inputProps={{ style: { fontSize: '14px', lineHeight: '17px' } }}

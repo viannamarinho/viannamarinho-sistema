@@ -8,12 +8,14 @@
 
 .admin_view__method_analysis__chat_container {
   display: flex;
-  flex: 1;
+  width: calc(50% - 10px);
+  height: 100%;
 }
 
 .admin_view__method_analysis__form_container {
   display: flex;
-  flex: 1;
+  width: calc(50% - 10px);
+  height: 100%;
 }
 
 

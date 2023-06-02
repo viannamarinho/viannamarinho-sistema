@@ -19,15 +19,25 @@ import { ButtonIcon } from '@/components/inputs/ButtonIcon'
 import { useMethodAnalysis } from '@/contexts/MethodAnalysisContext'
 
 import { accessLevel } from '@/data/usersData'
+import { answersMap, selectsMap } from '@/data/chatbot'
 
 export default function MethodAnalysisView() {
+  const [finalQuestionObject, setFinalQuestionObject] = useState({})
+  const [isFinalQuestion, setIsFinalQuestion] = useState(false)
+
   return (
     <div className={styles.admin_view__method_analysis}>
       <div className={styles.admin_view__method_analysis__chat_container}>
-        <MethodAnalysisChatbot />
+        <MethodAnalysisChatbot
+          setFinalQuestionObject={setFinalQuestionObject}
+          setIsFinalQuestion={setIsFinalQuestion}
+        />
       </div>
       <div className={styles.admin_view__method_analysis__form_container}>
-        <MethodAnalysisForm />
+        <MethodAnalysisForm
+          finalQuestionObject={finalQuestionObject}
+          isFinalQuestion={isFinalQuestion}
+        />
       </div>
     </div>
   )
@@ -35,7 +45,15 @@ export default function MethodAnalysisView() {
 
 // ========================================================== CHATBOT
 
-function MethodAnalysisChatbot() {
+interface IMethodAnalysisChatbotProps {
+  setFinalQuestionObject: any
+  setIsFinalQuestion: any
+}
+
+function MethodAnalysisChatbot({
+  setFinalQuestionObject,
+  setIsFinalQuestion
+}: IMethodAnalysisChatbotProps) {
   const {
     messages,
     handleSendMessage,
@@ -51,10 +69,6 @@ function MethodAnalysisChatbot() {
     trail: 50
   })
 
-  useEffect(() => {
-    // console.log('asdasdasd', isMessageMenuActive)
-  }, [isMessageMenuActive])
-
   return (
     <div className={styles.method_analysis__chat}>
       <div className={styles.method_analysis__chat__header}>
@@ -69,7 +83,10 @@ function MethodAnalysisChatbot() {
         <div className={styles.chat__messages_container}>
           <div className={styles.chat__messages_wrapper}>
             {transitions((style, message) => {
-              // console.log(message)
+              if (message.isFinalQuestion) {
+                setFinalQuestionObject(message.finalQuestionObject)
+                setIsFinalQuestion(true)
+              }
               return (
                 <animated.div
                   className={`${styles.message} ${
@@ -103,7 +120,10 @@ function MethodAnalysisChatbot() {
               <Button
                 label="Reiniciar Chat"
                 variant="outlined"
-                onClick={restartChat}
+                onClick={() => {
+                  setIsFinalQuestion(false)
+                  restartChat()
+                }}
               />
             )}
           </span>
@@ -117,7 +137,10 @@ function MethodAnalysisChatbot() {
               <Button
                 label="Reiniciar Chat"
                 variant="outlined"
-                onClick={restartChat}
+                onClick={() => {
+                  setIsFinalQuestion(false)
+                  restartChat()
+                }}
               />
             ) : (
               <>
@@ -142,18 +165,57 @@ function MethodAnalysisChatbot() {
 
 // ========================================================== FORM
 
-function MethodAnalysisForm() {
+interface IMethodAnalysisFormProps {
+  finalQuestionObject: any
+  isFinalQuestion: any
+}
+
+function MethodAnalysisForm({
+  finalQuestionObject,
+  isFinalQuestion
+}: IMethodAnalysisFormProps) {
   const { getBaseAJDataToForm } = useMethodAnalysis()
+
+  const formattedAnalysisOfMerit = useMemo(() => {
+    return answersMap.map((answer: any) => ({
+      valueId: answer.id,
+      valueLabel: answer.analise,
+      valueObject: answer
+    }))
+  }, [])
+
+  const formattedArea = useMemo(() => {
+    return selectsMap.selectArea.map((value: any) => ({
+      valueId: value.valueId,
+      valueLabel: value.valueLabel
+    }))
+  }, [])
+
+  const formattedClass = useMemo(() => {
+    return selectsMap.selectClasses.map((value: any) => ({
+      valueId: value.valueId,
+      valueLabel: value.valueLabel
+    }))
+  }, [])
+
+  const formattedDivHab = useMemo(() => {
+    return selectsMap.selectDivHab.map((value: any) => ({
+      valueId: value.valueId,
+      valueLabel: value.valueLabel
+    }))
+  }, [])
 
   const [folderNameValue, setFolderNameValue] = useState('')
 
-  const [analysisOfMeritValue, setAnalysisOfMeritValue] = useState({})
+  const [analysisOfMeritValue, setAnalysisOfMeritValue] = useState(
+    formattedAnalysisOfMerit[0]
+  )
   const [incidentNumberValue, setIncidentNumberValue] = useState('')
-  const [areaValue, setAreaValue] = useState({})
+  const [areaValue, setAreaValue] = useState(formattedArea[0])
   const [questionIdValue, setQuestionIdValue] = useState('')
-  const [classValue, setClassValue] = useState({})
+  const [classValue, setClassValue] = useState(formattedClass[0])
   const [amountValue, setAmountValue] = useState('')
-  const [divHabValue, setDivHabValue] = useState({})
+  const [divHabValue, setDivHabValue] = useState(formattedDivHab[0])
 
   const handleChangeFolderName = (value: string) => {
     setFolderNameValue(value)
@@ -187,33 +249,53 @@ function MethodAnalysisForm() {
     setDivHabValue(value)
   }
 
-  const formattedAnalysisOfMerit = useMemo(() => {
-    return accessLevel.map((accessLevel: any) => ({
-      valueId: accessLevel.accessLevelId,
-      valueLabel: accessLevel.accessLevelIdentifier
-    }))
-  }, [])
+  // =================================
 
-  const formattedArea = useMemo(() => {
-    return accessLevel.map((accessLevel: any) => ({
-      valueId: accessLevel.accessLevelId,
-      valueLabel: accessLevel.accessLevelIdentifier
-    }))
-  }, [])
+  const filtrarArrayPorValueId = (array: any, valueId: string) => {
+    const results = array.filter((item: any) => item.valueId === valueId)
+    return results[0]
+  }
 
-  const formattedClass = useMemo(() => {
-    return accessLevel.map((accessLevel: any) => ({
-      valueId: accessLevel.accessLevelId,
-      valueLabel: accessLevel.accessLevelIdentifier
-    }))
-  }, [])
+  useEffect(() => {
+    if (isFinalQuestion) {
+      setIncidentNumberValue(finalQuestionObject.num_incidente)
+      setQuestionIdValue(finalQuestionObject.pergunta_id)
+      setAmountValue(finalQuestionObject.valor)
 
-  const formattedDivHab = useMemo(() => {
-    return accessLevel.map((accessLevel: any) => ({
-      valueId: accessLevel.accessLevelId,
-      valueLabel: accessLevel.accessLevelIdentifier
-    }))
-  }, [])
+      const filteredAnalysisOfMerit = filtrarArrayPorValueId(
+        formattedAnalysisOfMerit,
+        finalQuestionObject.id
+      )
+
+      // const filteredArea = filtrarArrayPorValueId(
+      //   formattedArea,
+      //   finalQuestionObject.id
+      // )
+
+      // const filteredClass = filtrarArrayPorValueId(
+      //   formattedClass,
+      //   finalQuestionObject.id
+      // )
+
+      // const filteredDivHab = filtrarArrayPorValueId(
+      //   formattedDivHab,
+      //   finalQuestionObject.id
+      // )
+
+      setAnalysisOfMeritValue(filteredAnalysisOfMerit)
+      // setAreaValue(filteredArea)
+      // setClassValue(filteredClass)
+      // setDivHabValue(filteredDivHab)
+    }
+  }, [
+    isFinalQuestion,
+    analysisOfMeritValue,
+    finalQuestionObject,
+    formattedAnalysisOfMerit,
+    formattedArea,
+    formattedClass,
+    formattedDivHab
+  ])
 
   // =================================
 
@@ -223,6 +305,29 @@ function MethodAnalysisForm() {
 
   const handleClearForm = () => {
     //
+  }
+
+  // =================================
+
+  const formattedTextAreaValue = useMemo(() => {
+    return !isFinalQuestion
+      ? ''
+      : `| ${finalQuestionObject.texto_analise} | | ${finalQuestionObject.opcao} | | ${finalQuestionObject.classe} | | ${finalQuestionObject.valor} | | ${finalQuestionObject.divHabValue} | |ID Sisjur| \n\n${finalQuestionObject.texto}`
+  }, [finalQuestionObject, isFinalQuestion])
+
+  function copiarValor(valor: string): void {
+    const input = document.createElement('input')
+    input.style.position = 'fixed'
+    input.style.opacity = '0'
+    input.value = valor
+    document.body.appendChild(input)
+
+    input.select()
+    input.setSelectionRange(0, valor.length)
+
+    document.execCommand('copy')
+
+    document.body.removeChild(input)
   }
 
   return (
@@ -396,18 +501,15 @@ function MethodAnalysisForm() {
                 <TextArea
                   onlyRead
                   label="Texto"
-                  value="|Discordo Totalmente| |Crédito listado| |Classe|
-                  |Habilitação / Divergência| |ID Sisjur|\n\nVerificamos
-                  que o crédito pleiteado já foi listado pelas recuperandas,
-                  no exato valor requerido pelo credor, na relação de
-                  credores elaborada na forma do art. 51, III, já publicada
-                  nos autos do processo nº 0809863-36.2023.8.19.0001."
+                  value={formattedTextAreaValue.replace(/\\n/g, '\n')}
                 />
                 <ButtonIcon
                   icon={<HiOutlineDocumentDuplicate />}
                   size="medium"
                   ariaLabel="Recarregar Data"
-                  onClick={() => console.log('Recarregando...')}
+                  onClick={() =>
+                    copiarValor(formattedTextAreaValue.replace(/\\n/g, '\n'))
+                  }
                 />
               </div>
             </div>
